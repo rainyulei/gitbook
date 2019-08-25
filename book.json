@@ -1,0 +1,61 @@
+{
+  "author": "yu-Lei ",
+  "description": "some notes",
+  "extension": null,
+  "generator": "site",
+
+  "links": {
+    "sharing": {
+      "all": null,
+      "facebook": null,
+      "google": null,
+      "twitter": null,
+      "weibo": null
+    },
+    "sidebar": {
+      "yu-lei's Blog": "https://rainyulei.github.io"
+    }
+  },
+
+  "output": null,
+  "pdf": {
+    "fontSize": 12,
+    "footerTemplate": null,
+    "headerTemplate": null,
+    "margin": {
+      "bottom": 36,
+      "left": 62,
+      "right": 62,
+      "top": 36
+    },
+    "pageNumbers": false,
+    "paperSize": "a4"
+  },
+  "plugins": [
+    "multipart",
+    "chapter-fold",
+    "page-toc-button",
+    "splitter",
+    "-lunr",
+    "-search",
+    "search-pro",
+    "theme-comscore"
+    
+  ],
+  "theme-default": {
+    "showLevel": true
+},
+  "pluginsConfig": {
+    "page-toc-button": {
+        "maxTocDepth": 2,
+        "minTocSize": 2
+       }
+},
+  "title": "Notes",
+  "variables": {},
+  "bookname": "Notes",
+  "outputfile": "SUMMARY.md",
+  "catalog": ["1.koa","2.mongoose"],  
+  "ignores": ["Node Modules"],
+  "unchanged": [] 
+}

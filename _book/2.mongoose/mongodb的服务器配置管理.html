@@ -1,0 +1,741 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>mongodb的服务器配置管理 · Notes</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="yu-Lei ">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-multipart/multipart.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-page-toc-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Mongoose学习参考文档.html" />
+    
+    
+    <link rel="prev" href="mongodb.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://rainyulei.github.io" target="_blank" class="custom-link">yu-lei's Blog</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../1.koa/">
+            
+                <a href="../1.koa/">
+            
+                    
+                    1.koa
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../1.koa/Koa 以及中间件学习笔记.html">
+            
+                <a href="../1.koa/Koa 以及中间件学习笔记.html">
+            
+                    
+                    Koa 以及中间件学习笔记
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    2.mongoose
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="mongodb.html">
+            
+                <a href="mongodb.html">
+            
+                    
+                    Mongodb
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.2" data-path="mongodb的服务器配置管理.html">
+            
+                <a href="mongodb的服务器配置管理.html">
+            
+                    
+                    mongodb的服务器配置管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="Mongoose学习参考文档.html">
+            
+                <a href="Mongoose学习参考文档.html">
+            
+                    
+                    Mongoose学习参考文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="mongoose的全文.html">
+            
+                <a href="mongoose的全文.html">
+            
+                    
+                    mongoose的全文
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >mongodb的服务器配置管理</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="centos-&#x90E8;&#x7F72;-mongodb">CentOS &#x90E8;&#x7F72; MongoDB</h1>
+<h2 id="&#x5B89;&#x88C5;&#x8FC7;&#x7A0B;"><strong>&#x5B89;&#x88C5;&#x8FC7;&#x7A0B;</strong></h2>
+<p>1&#x3001;&#x6DFB;&#x52A0; MongoDB &#x7684;&#x6E90;&#xFF1A;</p>
+<p><code>mongodb-org</code> &#x8FD9;&#x4E2A;&#x5305;&#x9ED8;&#x8BA4;&#x4E0D;&#x5B58;&#x5728; CentOS &#x7684;&#x6E90;&#x91CC;&#xFF0C;&#x6240;&#x4EE5;&#x8981;&#x5148;&#x6DFB;&#x52A0;&#x5230;&#x6211;&#x4EEC;&#x670D;&#x52A1;&#x5668;&#x4E2D;&#xFF1A;</p>
+<pre><code class="lang-text"> vi /etc/yum.repos.d/mongodb-org.repo
+</code></pre>
+<p>&#x7136;&#x540E;&#x8BBF;&#x95EE; <a href="http://link.zhihu.com/?target=https%3A//docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/%23configure-the-package-management-system-yum" target="_blank">Install on Red Hat</a> &#x627E;&#x5230;&#x6700;&#x65B0;&#x7684; MongoDB &#x7A33;&#x5B9A;&#x7248;&#x672C;&#x5E76;&#x6DFB;&#x52A0;&#x5230;&#x4E0A;&#x9762;&#x6253;&#x5F00;&#x7684;&#x6587;&#x6863;&#x4E2D;&#xFF0C;&#x7C7B;&#x4F3C;&#x8FD9;&#x6837;&#xFF1A;</p>
+<pre><code class="lang-text">[mongodb-org-4.0]
+name=MongoDB Repository
+baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/4.0/x86_64/
+gpgcheck=1
+enabled=1
+gpgkey=https://www.mongodb.org/static/pgp/server-4.0.asc
+</code></pre>
+<pre><code class="lang-shell">[mongodb-org-3.6]
+name=MongoDB Repository
+baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.6/x86_64/
+gpgcheck=1
+enabled=1
+gpgkey=https://www.mongodb.org/static/pgp/server-3.6.asc
+</code></pre>
+<pre><code class="lang-shell">[mongodb-org-3.4]
+name=MongoDB 3.4 Repository
+baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.4/x86_64/
+gpgcheck=0
+enabled=1
+</code></pre>
+<p>&#x7F16;&#x8F91;&#x5E76;&#x4FDD;&#x5B58;&#x6587;&#x4EF6;&#xFF0C;&#x67E5;&#x770B;&#x670D;&#x52A1;&#x5668;&#x6E90;&#x5217;&#x8868;&#x4E2D;&#x662F;&#x5426;&#x5DF2;&#x6DFB;&#x52A0;&#x6210;&#x529F;&#xFF08;&#x7559;&#x610F; mongodb-org<strong>-&#x7248;&#x672C;</strong>&#xFF09;&#xFF1A;</p>
+<pre><code class="lang-text">$ yum repolist 
+# &#x8F93;&#x51FA;&#x4E00;&#x822C;&#x5982;&#x4E0B;
+. . .
+repo id                          repo name
+base/7/x86_64                    CentOS-7 - Base
+extras/7/x86_64                  CentOS-7 - Extras
+mongodb-org-3.2/7/x86_64         MongoDB Repository
+updates/7/x86_64                 CentOS-7 - Updates
+. . .
+</code></pre>
+<p>2&#x3001;&#x5B89;&#x88C5; MongoDB&#xFF1A;</p>
+<pre><code class="lang-text"> yum install mongodb-org
+</code></pre>
+<p>3&#x3001;&#x542F;&#x52A8; MongoDB&#xFF1A;</p>
+<pre><code class="lang-text">$ sudo systemctl start mongod
+</code></pre>
+<p>&#x5982;&#x6709;&#x9700;&#x8981;&#x91CD;&#x65B0;&#x89E3;&#x6790;&#x6539;&#x52A8;&#x540E;&#x7684; /etc/mongod.conf &#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x53EF;&#x4EE5;&#x6267;&#x884C;&#xFF1A;</p>
+<pre><code class="lang-text">$ sudo systemctl reload mongod
+</code></pre>
+<p>4&#x3001;&#x56E0;&#x4E3A; systemctl &#x5E76;&#x4E0D;&#x8FD4;&#x56DE;&#x542F;&#x52A8;&#x7ED3;&#x679C;&#xFF0C;&#x6240;&#x4EE5;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#x67E5;&#x770B;&#x662F;&#x5426;&#x542F;&#x52A8;&#xFF1A;</p>
+<pre><code class="lang-text">$ sudo tail /var/log/mongodb/mongod.log
+</code></pre>
+<p>&#x67E5;&#x627E;&#x662F;&#x5426;&#x5305;&#x542B;&#x8BE5;&#x65E5;&#x5FD7;&#xFF0C;&#x82E5;&#x51FA;&#x73B0;&#x5219;&#x8868;&#x793A;&#x670D;&#x52A1;&#x5DF2;&#x542F;&#x52A8;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; <code>mongo</code> &#x6765;&#x5F00;&#x542F;&#x547D;&#x4EE4;&#xFF1A;</p>
+<pre><code class="lang-text">. . .
+[initandlisten] waiting for connections on port 27017
+</code></pre>
+<p>5&#x3001;&#x5F00;&#x673A;&#x81EA;&#x542F;&#x52A8;</p>
+<p>&#x9996;&#x5148;&#x67E5;&#x770B;&#x662F;&#x5426;&#x5DF2;&#x542F;&#x7528;&#xFF1A;</p>
+<pre><code class="lang-text">$ systemctl is-enabled mongod; echo $?
+
+
+# &#x67E5;&#x770B;&#x8F93;&#x51FA;&#x662F;&#x5426;&#x5305;&#x542B; enabled &#x5B57;&#x6837;
+. . .
+enabled
+0
+</code></pre>
+<p>&#x82E5;&#x65E0;&#xFF0C;&#x53EF;&#x4EE5;&#x624B;&#x52A8;&#x542F;&#x52A8;&#xFF1A;</p>
+<pre><code class="lang-text">$ sudo systemctl enable mongod
+</code></pre>
+<p>6&#x3001;&#x5BFC;&#x5165; example &#x6570;&#x636E;</p>
+<pre><code>mongorestore -h 127.0.0.1:27017 -d doracms2 --drop #centos&#x4E0A;&#x8981;&#x5F15;&#x5165;&#x7684;&#x6570;&#x636E;&#x7684;&#x76EE;&#x5F55;
+</code></pre><p>7 &#x521B;&#x5EFA;&#x7BA1;&#x7406;&#x5458; &#x548C;&#x64CD;&#x4F5C;&#x5458;</p>
+<pre><code class="lang-shell">mongo ...
+...
+use admin
+# &#x521B;&#x5EFA;&#x7BA1;&#x7406;&#x5458;
+db.createUser({user: &quot;admin&quot;,pwd: &quot;admin&quot;,roles: [ { role: &quot;userAdminAnyDatabase&quot;, db: &quot;admin&quot; } ]})
+&#x9000;&#x51FA;  &#x7136;&#x540E;&#x4F7F;&#x7528;&#x7BA1;&#x7406;&#x5458;&#x8D26;&#x53F7;&#x91CD;&#x65B0;&#x767B;&#x5F55; &#x521B;&#x5EFA;&#x64CD;&#x4F5C;&#x5458;
+# &#x521B;&#x5EFA;&#x6570;&#x636E;&#x64CD;&#x4F5C;&#x5458; 
+db.createUser({user: &quot;leiyuyang&quot;,pwd: &quot;leiyuyang&quot;,roles: [ { role: &quot;readWrite&quot;, db: &quot;doracms2&quot; } ]})
+</code></pre>
+<p>8 &#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x6587;&#x4EF6; mongdb.conf </p>
+<p> &#x6DFB;&#x52A0;&#x5728;</p>
+<pre><code class="lang-js">security:
+   auth&#xFF1A;<span class="hljs-literal">true</span>
+</code></pre>
+<p>&#x5982;&#x679C;&#x662F;&#x5728;3.x &#x7248;&#x672C;&#x4EE5;&#x4E0A;&#x6DFB;&#x52A0;</p>
+<pre><code class="lang-js">security:
+   authorization: <span class="hljs-string">&quot;enabled&quot;</span>
+</code></pre>
+<p>&#x67E5;&#x770B;&#x6570;&#x636E;&#xFF1A;</p>
+<pre><code class="lang-text">$ mongo
+$ db.restaurants.find().limit(1).pretty()
+
+# &#x8F93;&#x51FA;
+{
+    &quot;_id&quot; : ObjectId(&quot;57e0443b46af7966d1c8fa68&quot;),
+    &quot;address&quot; : {
+        &quot;building&quot; : &quot;1007&quot;,
+        &quot;coord&quot; : [
+            -73.856077,
+            40.848447
+        ],
+        &quot;street&quot; : &quot;Morris Park Ave&quot;,
+        &quot;zipcode&quot; : &quot;10462&quot;
+    },
+    &quot;borough&quot; : &quot;Bronx&quot;,
+    &quot;cuisine&quot; : &quot;Bakery&quot;,
+    &quot;grades&quot; : [
+        {
+            &quot;date&quot; : ISODate(&quot;2014-03-03T00:00:00Z&quot;),
+            &quot;grade&quot; : &quot;A&quot;,
+            &quot;score&quot; : 2
+        },
+        {
+            &quot;date&quot; : ISODate(&quot;2013-09-11T00:00:00Z&quot;),
+            &quot;grade&quot; : &quot;A&quot;,
+            &quot;score&quot; : 6
+        },
+        {
+            &quot;date&quot; : ISODate(&quot;2013-01-24T00:00:00Z&quot;),
+            &quot;grade&quot; : &quot;A&quot;,
+            &quot;score&quot; : 10
+        },
+        {
+            &quot;date&quot; : ISODate(&quot;2011-11-23T00:00:00Z&quot;),
+            &quot;grade&quot; : &quot;A&quot;,
+            &quot;score&quot; : 9
+        },
+        {
+            &quot;date&quot; : ISODate(&quot;2011-03-10T00:00:00Z&quot;),
+            &quot;grade&quot; : &quot;B&quot;,
+            &quot;score&quot; : 14
+        }
+    ],
+    &quot;name&quot; : &quot;Morris Park Bake Shop&quot;,
+    &quot;restaurant_id&quot; : &quot;30075445&quot;
+}
+</code></pre>
+<p>&#x5220;&#x9664;&#x6570;&#x636E;&#x5E93;&#xFF1A;</p>
+<pre><code class="lang-text">$ db.restaurants.drop()
+</code></pre>
+<h2 id="&#x6570;&#x636E;&#x5E93;&#x64CD;&#x4F5C;"><strong>&#x6570;&#x636E;&#x5E93;&#x64CD;&#x4F5C;</strong></h2>
+<p>1&#x3001;&#x6DFB;&#x52A0;&#x6570;&#x636E;&#x5E93;&#x7528;&#x6237;</p>
+<pre><code class="lang-text">$ mongo --port 27017
+$ use admin
+$ db.createUser(
+   {
+     user: &quot;root&quot;,
+     pwd: &quot;xxxxxx&quot;,
+     roles: [ { role: &quot;userAdminAnyDatabase&quot;, db: &quot;admin&quot; } ]
+  })
+
+# &#x73B0;&#x5728;&#x6211;&#x4EEC;&#x4E3A; MongoDB &#x7684; admin &#x6570;&#x636E;&#x5E93;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x7528;&#x6237; root&#xFF0C;MongoDB &#x53EF;&#x4EE5;&#x4E3A;&#x6BCF;&#x4E2A;&#x6570;&#x636E;&#x5E93;
+# &#x90FD;&#x5EFA;&#x7ACB;&#x6743;&#x9650;&#x8BA4;&#x8BC1;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x4F60;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x67D0;&#x4E2A;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x767B;&#x5F55;&#x5230;&#x54EA;&#x4E2A;&#x6570;&#x636E;&#x5E93;&#x3002;&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x6211;&#x4EEC;&#x4E3A;
+# admin &#x6570;&#x636E;&#x5E93;&#x6DFB;&#x52A0;&#x4E86;&#x4E00;&#x4E2A; root &#x7528;&#x6237;&#xFF0C;&#x5728; MongoDB &#x4E2D; admin &#x6570;&#x636E;&#x5E93;&#x662F;&#x4E00;&#x4E2A;&#x7279;&#x522B;&#x7684;&#x6570;&#x636E;&#x5E93;&#xFF0C;
+# &#x8FD9;&#x4E2A;&#x6570;&#x636E;&#x5E93;&#x7684;&#x7528;&#x6237;&#xFF0C;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE; Mongodb &#x4E2D;&#x7684;&#x6240;&#x6709;&#x6570;&#x636E;&#x5E93;&#x3002;
+</code></pre>
+<p>2&#x3001;&#x7528;&#x6237;&#x767B;&#x5F55;</p>
+<pre><code class="lang-text"># &#x65B9;&#x5F0F;&#x4E00;
+$ mongo --port 27017 -u &quot;root&quot; -p &quot;xxxxxx&quot; --authenticationDatabase &quot;admin&quot;
+
+# &#x65B9;&#x5F0F;&#x4E8C;
+$ mongo --port 27017
+$ use admin
+$ db.auth(&quot;root&quot;, &quot;xxxxxx&quot;)
+
+// &#x8F93;&#x51FA; 1 &#x8868;&#x793A;&#x9A8C;&#x8BC1;&#x6210;&#x529F;&#xFF0C;&#x5E76;&#x4E14;&#x4E0D;&#x4F1A;&#x62A5;&#x9519;&#x4E86;
+</code></pre>
+<p>3&#x3001;&#x8D26;&#x6237;&#x76F8;&#x5173;&#x64CD;&#x4F5C;&#xFF1A;</p>
+<pre><code class="lang-text"># &#x67E5;&#x8BE2;&#x67D0;&#x4E2A;&#x6570;&#x636E;&#x5E93;&#x4E0B;&#x7528;&#x6237;&#xFF08;&#x6BCF;&#x4E2A;&#x6570;&#x636E;&#x5E93;&#x7684;&#x7528;&#x6237;&#x8D26;&#x53F7;&#x90FD;&#x662F;&#x4EE5;&#x6587;&#x6863;&#x5F62;&#x5F0F;&#x5B58;&#x50A8;&#x5728; system.users &#x96C6;&#x5408;&#x91CC;&#x9762;&#x7684;&#xFF09;
+$ db.system.users.find()
+
+# &#x5220;&#x9664;&#x67D0;&#x4E2A;&#x6570;&#x636E;&#x5E93;&#x4E0B;&#x7684;&#x6240;&#x6709;&#x7528;&#x6237;
+$ db.system.users.remove()
+
+# &#x5220;&#x9664;&#x6307;&#x5B9A;&#x7528;&#x6237;
+$ db.system.users.remove({&apos;user&apos;:&apos;&#x7528;&#x6237;&#x540D;&apos;})
+
+# &#x4FEE;&#x6539;&#x8D26;&#x6237;&#x5BC6;&#x7801;
+db.changeUserPassword(&quot;username&quot;, &quot;newpassword&quot;)
+</code></pre>
+<p>4&#x3001;&#x6570;&#x636E;&#x5E93;&#x64CD;&#x4F5C;</p>
+<pre><code class="lang-text">$ mongo --port 27017
+$ use admin
+$ db.auth(&quot;root&quot;, &quot;xxxxxx&quot;)
+
+$ show dbs         # &#x67E5;&#x770B;&#x6570;&#x636E;&#x5E93;
+$ use &lt;db name&gt;    # &#x9009;&#x62E9;&#x6570;&#x636E;&#x5E93;
+
+$ show collections           # &#x67E5;&#x770B; collections
+$ db.collectionName.find()   # &#x67E5;&#x770B; documents
+
+$ use &lt;db name&gt;     # &#x521B;&#x5EFA;&#x6570;&#x636E;&#x5E93;
+$ db.test.insert({&quot;name&quot;:&quot;tutorials point&quot;})    # &#x968F;&#x4FBF;&#x63D2;&#x5165;&#x70B9;&#x6570;&#x636E;&#xFF08;&#x624D;&#x80FD;&#x51FA;&#x73B0;&#xFF09;
+</code></pre>
+<p>5&#x3001;&#x6570;&#x636E;&#x7684;&#x5BFC;&#x5165;&#x4E0E;&#x5BFC;&#x51FA;</p>
+<pre><code class="lang-text"># mongoexport&#x5BFC;&#x51FA;&#x8868;&#xFF0C;&#x6216;&#x8005;&#x8868;&#x4E2D;&#x90E8;&#x5206;&#x5B57;&#x6BB5;&#xFF08;&#x4E00;&#x822C;&#x53EF;&#x4EE5;&#x7B80;&#x5199;&#xFF09;
+$ mongoexport -h IP --port &#x7AEF;&#x53E3; -u &#x7528;&#x6237;&#x540D; -p &#x5BC6;&#x7801; -d &#x6570;&#x636E;&#x5E93; -c &#x8868;&#x540D; --csv -q &#x6761;&#x4EF6; -f &#x5B57;&#x6BB5; -o newdbexport.json/dat/csv
+
+-h&#xFF1A;&#x6570;&#x636E;&#x5E93;&#x5BBF;&#x4E3B;&#x673A;&#x7684;IP
+-u&#xFF1A;&#x6570;&#x636E;&#x5E93;&#x7528;&#x6237;&#x540D;
+-p&#xFF1A;&#x6570;&#x636E;&#x5E93;&#x5BC6;&#x7801;
+-d&#xFF1A;&#x6570;&#x636E;&#x5E93;&#x540D;&#x5B57;
+-c&#xFF1A;&#x96C6;&#x5408;&#x7684;&#x540D;&#x5B57;
+-f&#xFF1A;&#x5BFC;&#x51FA;&#x7684;&#x5217;&#x540D;
+-q&#xFF1A;&#x5BFC;&#x51FA;&#x6570;&#x636E;&#x7684;&#x8FC7;&#x6EE4;&#x6761;&#x4EF6;
+-o&#xFF1A;&#x5BFC;&#x51FA;&#x6587;&#x4EF6;&#x7684;&#x76EE;&#x5F55;&#x53CA;&#x6587;&#x4EF6;&#x540D;&#xFF08;/xx/xx/xx.json&#xFF09;
+--type&#xFF1A;json &#x6216; csv&#xFF08;&#x9ED8;&#x8BA4;&#x662F; json&#xFF09;
+
+&#x6BD4;&#x5982;&#x5BFC;&#x51FA;&#x6574;&#x5F20;&#x8868;&#xFF1A;
+$ mongoexport -d test -c users -o allusers.dat
+
+&#x6BD4;&#x5982;&#x5BFC;&#x51FA;&#x90E8;&#x5206;&#x5B57;&#x6BB5;&#xFF1A;
+$ mongoexport -d test -c users --csv -f uid,name,sex -o test/users.csv
+
+&#x6BD4;&#x5982;&#x6839;&#x636E;&#x6761;&#x4EF6;&#x6562;&#x51FA;&#x6570;&#x636E;&#xFF1A;
+$ mongoexport -d test -c users -q &apos;{uid:{$gt:1}}&apos; -o test/users.json
+</code></pre>
+<pre><code class="lang-text"># mongoimport &#x5BFC;&#x5165;&#x8868;&#xFF0C;&#x6216;&#x8005;&#x8868;&#x4E2D;&#x90E8;&#x5206;&#x5B57;&#x6BB5;
+$ mongoimport -h IP --port &#x7AEF;&#x53E3; -u &#x7528;&#x6237;&#x540D; -p &#x5BC6;&#x7801; -d &#x6570;&#x636E;&#x5E93; -c &#x8868;&#x540D; --upsert --drop &#x6587;&#x4EF6;&#x540D;
+
+&#x6BD4;&#x5982;&#x8FD8;&#x539F;&#x5BFC;&#x51FA;&#x7684;&#x8868;&#x6570;&#x636E;&#xFF08;--upsert &#x63D2;&#x5165;&#x6216;&#x8005;&#x66F4;&#x65B0;&#x73B0;&#x6709;&#x6570;&#x636E;&#xFF09;
+$ mongoimport -d test -c users --upsert test/users.dat
+
+&#x6BD4;&#x5982;&#x90E8;&#x5206;&#x5B57;&#x6BB5;&#x7684;&#x8868;&#x6570;&#x636E;&#x5BFC;&#x5165;&#xFF08;--upsertFields&#x6839;--upsert&#x4E00;&#x6837;&#xFF09;
+$ mongoimport -d test -c users --upsertFields uid,name,sex test/users.dat
+
+&#x6BD4;&#x5982;&#x8FD8;&#x539F;csv&#x6587;&#x4EF6;
+$ mongoimport -d test -c users --type csv --headerline --file test/users.csv
+</code></pre>
+<pre><code class="lang-text"># mongodump &#x5907;&#x4EFD;&#x6570;&#x636E;&#x5E93;&#xFF08;&#x5982;&#x679C;&#x60F3;&#x5BFC;&#x51FA;&#x6240;&#x6709;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x53EF;&#x4EE5;&#x53BB;&#x6389;-d&#xFF09;
+$ mongodump -h IP --port &#x7AEF;&#x53E3; -u &#x7528;&#x6237;&#x540D; -p &#x5BC6;&#x7801; -d &#x6570;&#x636E;&#x5E93; -o &#x6587;&#x4EF6;&#x5B58;&#x5728;&#x8DEF;&#x5F84;
+
+&#x6BD4;&#x5982;&#xFF1A;
+$ mongodump -h 127.0.0.1 -p 30216 -d test -uxxxx -pxxxxx -o home/mongodb/
+</code></pre>
+<pre><code class="lang-text"># mongorestore &#x8FD8;&#x539F;&#x6570;&#x636E;&#x5E93;
+$ mongorestore -h IP --port &#x7AEF;&#x53E3; -u &#x7528;&#x6237;&#x540D; -p &#x5BC6;&#x7801; -d &#x6570;&#x636E;&#x5E93; --drop &#x6587;&#x4EF6;&#x5B58;&#x5728;&#x8DEF;&#x5F84;
+
+&#x6BD4;&#x5982;&#xFF1A;
+$ mongorestore -d test /home/mongodb/test
+</code></pre>
+<p>&#x539F;</p>
+<h1 id="yum-&#x5347;&#x7EA7;-mongodb">yum &#x5347;&#x7EA7; mongodb</h1>
+<p>2016&#x5E74;10&#x6708;24&#x65E5; 14:12:29 <a href="https://me.csdn.net/huaishuming" target="_blank">huaism</a> &#x9605;&#x8BFB;&#x6570;&#xFF1A;1782</p>
+<p>&#x7248;&#x6743;&#x58F0;&#x660E;&#xFF1A;&#x672C;&#x6587;&#x4E3A;&#x535A;&#x4E3B;&#x539F;&#x521B;&#x6587;&#x7AE0;&#xFF0C;&#x672A;&#x7ECF;&#x535A;&#x4E3B;&#x5141;&#x8BB8;&#x4E0D;&#x5F97;&#x8F6C;&#x8F7D;&#x3002;    <a href="https://blog.csdn.net/huaishuming/article/details/52911159" target="_blank">https://blog.csdn.net/huaishuming/article/details/52911159</a></p>
+<p><strong>&#x540D;&#x4E3A;&#x5347;&#x7EA7;&#x5B9E;&#x9645;&#x662F;&#x5378;&#x8F7D;&#x91CD;&#x88C5;&#x3002;</strong></p>
+<p><strong>&#x4E3B;&#x8981;&#x6D41;&#x7A0B;</strong></p>
+<p><strong>1. &#x5907;&#x4EFD;</strong></p>
+<p><strong>2. &#x5378;&#x8F7D;</strong></p>
+<p><strong>3.&#x5B89;&#x88C5;</strong></p>
+<p><strong>4.&#x914D;&#x7F6E;</strong></p>
+<p><strong>5.&#x8FD8;&#x539F;</strong></p>
+<p>1.&#x5907;&#x4EFD; &#x4E0D;&#x505A;&#x89E3;&#x91CA;</p>
+<pre><code class="lang-html"> ./mongodump --host 127.0.0.1 --port 27017 --username root --password xxxx --out /application/mongodb_backup
+</code></pre>
+<p>\2. &#x5378;&#x8F7D;<a href="http://blog.csdn.net/sodino/article/details/52368853" target="_blank">yum&#x5378;&#x8F7D;mongodb&#x53CA;&#x540E;&#x7EED;&#x95EE;&#x9898;&#x7684;&#x89E3;&#x51B3;</a></p>
+<p><img src="http://ww2.sinaimg.cn/mw690/e3dc9ceagw1f7bmmtwmjtj20g107z0vm.jpg" alt="error.mongodb"></p>
+<p>&#x5378;&#x8F7D;&#x8FC7;&#x7A0B;</p>
+<p>``// &#x627E;&#x51FA;mongodb&#x76F8;&#x5173;&#x7684;&#x5B89;&#x88C5;&#x5305;yum list installed | grep mongo// &#x5220;&#x9664;&#x6307;&#x5B9A;&#x7684;&#x5B89;&#x88C5;&#x5305;,&#x5305;&#x540D;&#x7531;&#x4E0A;&#x9762;&#x7684;list&#x547D;&#x4EE4;&#x83B7;&#x5F97;yum erase mongodb.x86_64yum erase mongodb-server.x86_64</p>
+<p>&#x8BE6;&#x7EC6;&#x5982;&#x4E0B;&#x56FE;&#xFF1A;
+<img src="http://ww2.sinaimg.cn/mw690/e3dc9ceagw1f7bmmuloxhj213z0f344l.jpg" alt="uninstall.mongodb"></p>
+<p>&#x786E;&#x8BA4;&#x5220;&#x9664;&#x4E86;&#xFF0C;&#x67E5;&#x770B;<code>which</code>&#x547D;&#x4EE4;&#x53D1;&#x73B0;<code>mongo</code>&#x6307;&#x5411;&#x4E86;3.2.9&#x9AD8;&#x7248;&#x672C;&#x7684;&#x7A0B;&#x5E8F;&#x4E86;&#xFF08;&#x4E4B;&#x524D;&#x5DF2;&#x7ECF;&#x6709;&#x5C06;&#x9AD8;&#x7248;&#x672C;mongo&#x8DEF;&#x5F84;&#x6DFB;&#x52A0;&#x5230;&#x7CFB;&#x7EDF;&#x7684;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#xFF09;&#x3002;
+<img src="http://ww1.sinaimg.cn/mw1024/e3dc9ceagw1f7bmmv5ywaj20ca045ab0.jpg" alt="which.mongo"></p>
+<p>&#x4F46;&#x4E0B;&#x4E00;&#x6B65;&#x76F4;&#x63A5;&#x4F7F;&#x7528;<code>mongo</code>&#x5374;&#x53D1;&#x73B0;&#x51FA;&#x9519;&#x4E86;</p>
+<p>``# mongo-bash: /usr/bin/mongo: No such file or directory</p>
+<p><img src="http://ww2.sinaimg.cn/mw1024/e3dc9ceagw1f7bmmwgc35j20sf03mwgm.jpg" alt="error.mongodb"></p>
+<p>&#x597D;&#x5427;&#xFF0C;<code>yum</code>&#x53EA;&#x5220;&#x9664;&#x4E86;&#x5B89;&#x88C5;&#x5305;&#xFF0C;&#x4F46;&#x6CA1;&#x6709;&#x628A;&#x5FEB;&#x6377;&#x65B9;&#x5F0F;&#x4E00;&#x5E76;&#x6E05;&#x9664;&#x3002;
+&#x90A3;&#x5C31;&#x628A;&#x5FEB;&#x6377;&#x65B9;&#x5F0F;&#x6307;&#x5411;&#x9AD8;&#x7248;&#x672C;&#x7684;mongodb&#x7684;&#x53EF;&#x6267;&#x884C;&#x6587;&#x4EF6;&#x5427;&#x3002;</p>
+<p>``ln -s /root/soft/mongodb/bin/mongo /usr/bin/mongo</p>
+<p>&#x597D;&#x4E86;&#xFF0C;&#x89E3;&#x51B3;&#x4E86;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x6CA1;&#x6709;&#x8BBE;&#x7F6E;&#x8F6F;&#x8FDE;&#x63A5;&#xFF0C;&#x5219;&#x51FA;&#x73B0;&#x8FD9;&#x4E2A;&#x60C5;&#x51B5;&#x53EF;&#x80FD;&#x662F;&#xFF0C;&#x6CA1;&#x542F;&#x52A8;&#x670D;&#x52A1;</p>
+<p>3.&#x5B89;&#x88C5;&#xFF1A;</p>
+<p>&#x53C2;&#x8003;&#xFF1A;</p>
+<p>&#x9009;&#x4E2D;&#x81EA;&#x5DF1;&#x7684;&#x7248;&#x672C;&#x8FDB;&#x884C;&#x5B89;&#x88C5;</p>
+<p><a href="https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/" target="_blank">https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/</a></p>
+<h3 id="configure-the-package-management-system-yum">Configure the package management system (<code>yum</code>).</h3>
+<p>Create a <code>/etc/yum.repos.d/mongodb-org-3.2.repo</code> file so that you can install MongoDB directly, using <code>yum</code>.</p>
+<p>Changed in version 3.0: MongoDB Linux packages are in a new repository beginning with 3.0.</p>
+<h4 id="for-the-latest-stable-release-of-mongodb">For the latest stable release of MongoDB</h4>
+<p>Use the following repository file:</p>
+<pre><code>$releasever &#x662F;&#x7CFB;&#x7EDF;&#x7248;&#x672C;
+</code></pre><pre><code>[mongodb-org-3.2]
+name=MongoDB Repository
+baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.2/x86_64/
+gpgcheck=1
+enabled=1
+gpgkey=https://www.mongodb.org/static/pgp/server-3.2.asc
+//&#x6267;&#x884C;&#x5B89;&#x88C5;
+sudo yum install -y mongodb-org-3.2.10 mongodb-org-server-3.2.10 mongodb-org-shell-3.2.10 mongodb-org-mongos-3.2.10 mongodb-org-tools-3.2.10
+//&#x542F;&#x52A8;&#x670D;&#x52A1;
+service mongod start
+</code></pre><p>4.&#x8FD8;&#x539F;&#xFF1A;</p>
+<p>mongorestore /application/data_backup/mongodb</p>
+<p>\5. &#x914D;&#x7F6E;&#xFF1B;</p>
+<p>&#x5B89;&#x88C5;&#x540E; &#x8F93;&#x5165; mongo &#x4F1A;&#x51FA;&#x73B0;&#x8B66;&#x544A;&#xFF1A;</p>
+<p>\1. &#x6570;&#x91CF;&#x9650;&#x5236;</p>
+<p>&#x89E3;&#x51B3;&#x529E;&#x6CD5;</p>
+<p>&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x6587;&#x4EF6; /etc/security/limits.conf&#xFF0C;&#x6DFB;&#x52A0;&#x914D;&#x7F6E;&#x4FE1;&#x606F;&#xFF1A;</p>
+<p>[root@localhost ~]# vi /etc/security/limits.conf</p>
+<p><a href="http://www.2cto.com/database/201505/398290.html#" target="_blank">?</a></p>
+<pre><code>`mongod soft nofile 64000``mongod hard nofile 64000``mongod soft nproc 32000``mongod hard nproc 32000`
+</code></pre><p>&#x91CD;&#x542F; mongod &#x670D;&#x52A1;&#xFF1A;</p>
+<p>&#x8F6C;&#x8F7D;&#xFF1A;</p>
+<h1 id="&#x7CFB;&#x7EDF;&#x73AF;&#x5883;">&#x7CFB;&#x7EDF;&#x73AF;&#x5883;</h1>
+<pre><code>Distributor ID: CentOS
+
+
+
+Description:    CentOS release 6.7 (Final)
+
+
+
+Release:    6.7
+
+
+
+Codename:   Final
+</code></pre><h1 id="&#x95EE;&#x9898;&#x63CF;&#x8FF0;">&#x95EE;&#x9898;&#x63CF;&#x8FF0;</h1>
+<p>&#x5728;&#x7CFB;&#x7EDF;&#x4E0A;&#x5B89;&#x88C5;mongodb&#x4E4B;&#x540E;&#x62A5;&#x9519;&#x3002; 
+(&#x5B89;&#x88C5;&#x6559;&#x7A0B;&#x5730;&#x5740;: <a href="https://docs.mongodb.com/master/tutorial/install-mongodb-on-red-hat/" target="_blank">https://docs.mongodb.com/master/tutorial/install-mongodb-on-red-hat/</a>)</p>
+<p>&#x9519;&#x8BEF;&#x4FE1;&#x606F;: 
+WARNING: /sys/kernel/mm/transparent_hugepage/enabled is &#x2018;always&#x2019;.We suggest setting it to &#x2018;never&#x2019; 
+WARNING: /sys/kernel/mm/transparent_hugepage/defrag is &#x2018;always&#x2019;.We suggest setting it to &#x2018;never&#x2019; 
+WARNING: soft rlimits too low. rlimits set to 1024 processes, 65535 files. Number of processes should be at least 32767.5 : 0.5 times number of files. 
+&#x5982;&#x56FE;&#xFF1A; 
+<img src="https://img-blog.csdn.net/20160521162126599" alt="mongodb&#x62A5;&#x9519;"></p>
+<h1 id="&#x89E3;&#x51B3;&#x65B9;&#x6848;">&#x89E3;&#x51B3;&#x65B9;&#x6848;</h1>
+<h2 id="&#x524D;&#x4E24;&#x4E2A;warning">&#x524D;&#x4E24;&#x4E2A;warning</h2>
+<pre><code>sudo echo &quot;never&quot; &gt; /sys/kernel/mm/transparent_hugepage/enabled
+
+
+
+sudo echo &quot;never&quot; &gt;  /sys/kernel/mm/transparent_hugepage/defrag
+</code></pre><h2 id="&#x7B2C;&#x4E09;&#x4E2A;warning">&#x7B2C;&#x4E09;&#x4E2A;warning</h2>
+<pre><code>vim /etc/security/limits.conf
+
+
+
+&#x6DFB;&#x52A0;&#x4E00;&#x4E0B;&#x51E0;&#x884C;
+
+
+
+mongod  soft  nofile  64000
+
+
+
+mongod  hard  nofile  64000
+
+
+
+mongod  soft  nproc  32000
+
+
+
+mongod  hard  nproc  32000
+</code></pre><h2 id="&#x91CD;&#x542F;mongod">&#x91CD;&#x542F;mongod</h2>
+<pre><code>sudo service mongod restart
+</code></pre><h2 id="&#x6210;&#x529F;">&#x6210;&#x529F;</h2>
+<p>&#x91CD;&#x542F;&#x6210;&#x529F;&#x4E4B;&#x540E;&#xFF0C;&#x6240;&#x6709;&#x62A5;&#x9519;&#x90FD;&#x6CA1;&#x5566;&#xFF0C;&#x5982;&#x4E0B;</p>
+<pre><code>&#x279C;  ~ git:(master) mongo
+
+
+
+MongoDB shell version: 3.2.6
+
+
+
+connecting to: test
+
+
+
+&gt;
+</code></pre>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="mongodb.html" class="navigation navigation-prev " aria-label="Previous page: Mongodb">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Mongoose学习参考文档.html" class="navigation navigation-next " aria-label="Next page: Mongoose学习参考文档">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"mongodb的服务器配置管理","level":"1.3.2","depth":2,"next":{"title":"Mongoose学习参考文档","level":"1.3.3","depth":2,"path":"2.mongoose/Mongoose学习参考文档.md","ref":"2.mongoose/Mongoose学习参考文档.md","articles":[]},"previous":{"title":"Mongodb","level":"1.3.1","depth":2,"path":"2.mongoose/mongodb.md","ref":"2.mongoose/mongodb.md","articles":[]},"dir":"ltr"},"config":{"plugins":["multipart","chapter-fold","page-toc-button","splitter","-lunr","-search","search-pro","theme-comscore"],"ignores":["Node Modules"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"splitter":{},"search-pro":{},"multipart":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"yu-Lei ","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"bookname":"Notes","variables":{},"title":"Notes","catalog":["1.koa","2.mongoose"],"links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"yu-lei's Blog":"https://rainyulei.github.io"}},"gitbook":"*","unchanged":[],"description":"some notes","outputfile":"SUMMARY.md","theme-default":{"showLevel":true},"extension":null},"file":{"path":"2.mongoose/mongodb的服务器配置管理.md","mtime":"2019-03-13T06:00:53.147Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-25T22:53:46.331Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-page-toc-button/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+
