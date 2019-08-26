@@ -1,0 +1,445 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>2.3 Notes-mongooDB · Notes</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="yu-Lei ">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-multipart/multipart.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-page-toc-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="2.4 DOC-mongoose的全文.html" />
+    
+    
+    <link rel="prev" href="2.2 DOC-mongodb的服务器配置管理.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://rainyulei.github.io" target="_blank" class="custom-link">yu-lei's Blog</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../1.koa/">
+            
+                <a href="../1.koa/">
+            
+                    
+                    1.koa
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../1.koa/1.1 DOC-Koa 以及中间件学习笔记.html">
+            
+                <a href="../1.koa/1.1 DOC-Koa 以及中间件学习笔记.html">
+            
+                    
+                    1.1 DOC-Koa 以及中间件学习笔记
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    2.mongoose
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="2.1 DOC-mongodb.html">
+            
+                <a href="2.1 DOC-mongodb.html">
+            
+                    
+                    2.1 DOC-mongodb
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="2.2 DOC-mongodb的服务器配置管理.html">
+            
+                <a href="2.2 DOC-mongodb的服务器配置管理.html">
+            
+                    
+                    2.2 DOC-mongodb的服务器配置管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.3" data-path="2.3 Notes-mongooDB.html">
+            
+                <a href="2.3 Notes-mongooDB.html">
+            
+                    
+                    2.3 Notes-mongooDB
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="2.4 DOC-mongoose的全文.html">
+            
+                <a href="2.4 DOC-mongoose的全文.html">
+            
+                    
+                    2.4 DOC-mongoose的全文
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="2.5 DOC-Mongoose学习参考文档.html">
+            
+                <a href="2.5 DOC-Mongoose学习参考文档.html">
+            
+                    
+                    2.5 DOC-Mongoose学习参考文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >2.3 Notes-mongooDB</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="mongoodb">mongooDB</h2>
+<h3 id="&#x6570;&#x636E;&#x5E93;&#x64CD;&#x4F5C;">&#x6570;&#x636E;&#x5E93;&#x64CD;&#x4F5C;</h3>
+<h4 id="&#x521B;&#x5EFA;&#x6570;&#x636E;&#x5E93;-&#x548C;&#x521B;&#x5EFA;&#x8868;">&#x521B;&#x5EFA;&#x6570;&#x636E;&#x5E93; &#x548C;&#x521B;&#x5EFA;&#x8868;</h4>
+<pre><code class="lang-bash">use &#x6570;&#x636E;&#x5E93;&#x540D;&#x79F0; <span class="hljs-comment"># &#x4F7F;&#x7528;&#x6570;&#x636E;&#x5E93;</span>
+<span class="hljs-comment"># &#x63D2;&#x5165;&#x4E00;&#x6761;&#x6570;&#x636E;&#x7684;&#x540C;&#x65F6;&#x5C31;&#x4F1A;&#x521B;&#x5EFA;&#x8868;</span>
+db.&#x8868;&#x540D;.insert()
+<span class="hljs-comment"># &#x5220;&#x9664; &#x8868;</span>
+db.&#x8868;&#x540D;.drop()
+<span class="hljs-comment"># &#x67E5;&#x8BE2; </span>
+db.&#x8868;&#x540D;.find(&#x67E5;&#x8BE2;&#x6761;&#x4EF6;&#xFF0C;&#x67E5;&#x8BE2;&#x7684;&#x8FD4;&#x56DE;&#x5B57;&#x6BB5;&#xFF0C;&#x8F93;&#x51FA;&#x7684;&#x6761;&#x4EF6;)
+<span class="hljs-comment"># &#x67E5;&#x8BE2;&#x53C8; skip   &#x8DF3;&#x8FC7; sort &#x6392;&#x5E8F; &#xFF08;1&#xFF09;&#x6B63;&#x5E8F;  &#xFF08;-1&#xFF09;&#x5012;&#x53D9;  limit &#xFF08;&#xFF09; &#x9650;&#x5236;&#x8F93;&#x51FA;&#x6570;&#x91CF; $gt &#x7B49;&#x6761;&#x4EF6;&#x9650;&#x5236;&#x7B26;&#x53F7;</span>
+<span class="hljs-comment"># &#x6761;&#x4EF6;&#x662F;&#x5E76;&#x4E14;&#x7528;{a&#xFF0C;b} &#x6216;{$or:[&#x6761;&#x4EF6;a&#xFF0C;&#x6761;&#x4EF6;b]</span>
+<span class="hljs-comment"># count &#x7EDF;&#x8BA1;&#x6570;&#x91CF;</span>
+<span class="hljs-comment"># $set &#x66F4;&#x65B0;  &#x4E0D;&#x52A0;&#x5C31;&#x662F;&#x8986;&#x76D6;&#x66F4;&#x6539;</span>
+
+remove(&#x6761;&#x4EF6;&#xFF0C;{justone&#xFF1A;<span class="hljs-literal">true</span>})
+<span class="hljs-comment"># &#x662F;&#x5220;&#x9664; &#x5982;&#x679C;&#x53EA;&#x5220;&#x9664;&#x4E00;&#x4E2A; &#x5C31;&#x4F7F;&#x7528;justOne</span>
+</code></pre>
+<h3 id="&#x7D22;&#x5F15;">&#x7D22;&#x5F15;</h3>
+<pre><code class="lang-bash"><span class="hljs-comment"># &#x5220;&#x9664;&#x7D22;&#x5F15; </span>
+db.user.dropIndex({<span class="hljs-string">&quot;&#x5B57;&#x6BB5;&#x540D;&quot;</span>&#xFF1A;1})
+explain(<span class="hljs-string">&quot;executionStats&quot;</span>)  <span class="hljs-comment"># &#x8BED;&#x53E5;&#x6267;&#x884C;&#x65F6;&#x95F4;</span>
+1 &#x6807;&#x8BC6;&#x5347;&#x5E8F;&#x7D22;&#x5F15;  -1 &#x6807;&#x8BC6;&#x964D;&#x5E8F;&#x7D22;&#x5F15;
+<span class="hljs-comment"># &#x8BBE;&#x7F6E;&#x7D22;&#x5F15;</span>
+db.user.ensureIndex({<span class="hljs-string">&quot;&#x5B57;&#x6BB5;&#x540D;&#x79F0;&quot;</span>&#xFF1A;1})
+
+<span class="hljs-comment"># &#x67E5;&#x8BE2;&#x7D22;&#x5F15;</span>
+db.user.getIndeses() <span class="hljs-comment"># &#x67E5;&#x8BE2;&#x6240;&#x6709;&#x7D22;&#x5F15;</span>
+<span class="hljs-comment"># &#x8BBE;&#x7F6E;&#x590D;&#x5408;&#x7D22;&#x5F15;</span>
+db.user.ensureIndex({<span class="hljs-string">&quot;&#x5B57;&#x6BB5;&#x540D;&#x79F0;&quot;</span>&#xFF1A;1&#xFF0C;<span class="hljs-string">&quot;&#x5B57;&#x6BB5;&#x540D;&#x79F0;2&quot;</span>&#xFF1A;-1&#xFF0C;})
+<span class="hljs-comment"># &#x552F;&#x4E00;&#x7D22;&#x5F15; </span>
+db.user.ensureIndex({<span class="hljs-string">&quot;&#x5B57;&#x6BB5;&#x540D;&#x79F0;&quot;</span>&#xFF1A;1&#xFF0C;<span class="hljs-string">&quot;&#x5B57;&#x6BB5;&#x540D;&#x79F0;2&quot;</span>&#xFF1A;-1&#xFF0C;}&#xFF0C;{unique:<span class="hljs-literal">true</span>}) <span class="hljs-comment"># &#x5B57;&#x6BB5;&#x4E0D;&#x53EF;&#x4EE5;&#x4EE5;&#x91CD;&#x590D;</span>
+</code></pre>
+<h3 id="&#x8D26;&#x6237;&#x6743;&#x9650;&#x914D;&#x7F6E;">&#x8D26;&#x6237;&#x6743;&#x9650;&#x914D;&#x7F6E;</h3>
+<p>&#x7BA1;&#x7406;&#x5458;&#x7528;&#x6237;&#x90FD;&#x5728;admin  &#x4E2D;</p>
+<pre><code class="lang-bash">use admin
+<span class="hljs-comment"># &#x521B;&#x5EFA;&#x7528;&#x6237;</span>
+db.createUser({
+user:<span class="hljs-string">&quot;admin&quot;</span>,
+<span class="hljs-built_in">pwd</span>:<span class="hljs-string">&apos;123456&apos;</span>,
+roles:[{role:<span class="hljs-string">&apos;root&apos;</span>,db:<span class="hljs-string">&apos;admin&apos;</span>}]
+})
+</code></pre>
+<p>&#x624E;&#x5230;&#x4FEE;&#x6539;mongoodb&#x6570;&#x636E;&#x5E93;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</p>
+<p>&#x8DEF;&#x5F84; bin&#x76EE;&#x5F55;&#x4E0B;&#x7684;<code>mongod.cfg</code></p>
+<h3 id="&#x805A;&#x5408;&#x7BA1;&#x9053;">&#x805A;&#x5408;&#x7BA1;&#x9053;</h3>
+<p>&#x53EF;&#x4EE5;&#x5BF9;&#x96C6;&#x5408;&#x4E2D;&#x7684;&#x6587;&#x6863;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x53D8;&#x6362;&#x548C;&#x7EC4;&#x5408;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// &#x901A;&#x8FC7;</span>
+db.orders.aggregate([
+    {$match:{username:<span class="hljs-string">&quot;zhangsan&quot;</span>}},
+    {$group:{age:<span class="hljs-number">30</span>&#xFF0C;total&#xFF1A;{$sum:<span class="hljs-string">&apos;$amount&apos;</span>}}}
+])
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x662F;&#x5148;&#x67E5;&#x5230; username &#x662F;&#x5F20;&#x4E09;&#x7684;&#x4EBA;&#xFF0C;&#x7136;&#x540E;&#x5BF9;&#x6240;&#x6709;&#x7684;&#x5F20;&#x4E09;&#x8FDB;&#x884C;&#x5206;&#x7EC4; 30&#x5C81;&#x7684;&#x4E00;&#x7EC4;  &#x4E0D;&#x662F;&#x4E09;&#x5341;&#x7684;&#x4E00;&#x7EC4;&#xFF0C;&#x8FD9;&#x4E2A;&#x64CD;&#x4F5C;&#x4F1A;&#x8FD4;&#x56DE;&#x8FDE;&#x4E2A;&#x7EC4;&#x5408;</p>
+<p>&#x5E38;&#x89C1;&#x7684;&#x64CD;&#x4F5C;&#x7B26;</p>
+<pre><code class="lang-js">$project &#x6DFB;&#x52A0; &#x5220;&#x9664; &#x547D;&#x540D;  &#x9700;&#x8981;&#x663E;&#x793A;&#x7684;&#x5217;
+$lookup &#x5F15;&#x5165;&#x5176;&#x4ED6;&#x96C6;&#x5408;&#x6570;&#x636E;  &#x5173;&#x8054;&#x67E5;&#x8BE2;
+$match &#x6761;&#x4EF6;&#x5339;&#x914D; &#x6EE1;&#x8DB3;&#x6761;&#x4EF6;&#x7B5B;&#x9009;&#x8FDB;&#x5165;&#x4E0B;&#x4E00;&#x7EC4;&#x7BA1;&#x9053;
+$group &#x6761;&#x4EF6;&#x7EC4;&#x5408;&#x7ED3;&#x679C;  &#x7EDF;&#x8BA1;
+$sort  &#x6761;&#x4EF6;&#x6392;&#x5E8F;
+$skip &#x8DF3;&#x8FC7;
+$limit &#x9650;&#x5236;&#x6570;&#x91CF;
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="2.2 DOC-mongodb的服务器配置管理.html" class="navigation navigation-prev " aria-label="Previous page: 2.2 DOC-mongodb的服务器配置管理">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="2.4 DOC-mongoose的全文.html" class="navigation navigation-next " aria-label="Next page: 2.4 DOC-mongoose的全文">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"2.3 Notes-mongooDB","level":"1.3.3","depth":2,"next":{"title":"2.4 DOC-mongoose的全文","level":"1.3.4","depth":2,"path":"2.mongoose/2.4 DOC-mongoose的全文.md","ref":"2.mongoose/2.4 DOC-mongoose的全文.md","articles":[]},"previous":{"title":"2.2 DOC-mongodb的服务器配置管理","level":"1.3.2","depth":2,"path":"2.mongoose/2.2 DOC-mongodb的服务器配置管理.md","ref":"2.mongoose/2.2 DOC-mongodb的服务器配置管理.md","articles":[]},"dir":"ltr"},"config":{"plugins":["multipart","chapter-fold","page-toc-button","splitter","-lunr","-search","search-pro","theme-comscore"],"ignores":["Node Modules"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"splitter":{},"search-pro":{},"multipart":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"yu-Lei ","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"bookname":"Notes","variables":{},"title":"Notes","catalog":["1.koa","2.mongoose"],"links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"yu-lei's Blog":"https://rainyulei.github.io"}},"gitbook":"*","unchanged":[],"description":"some notes","outputfile":"SUMMARY.md","theme-default":{"showLevel":true},"extension":null},"file":{"path":"2.mongoose/2.3 Notes-mongooDB.md","mtime":"2019-08-25T10:35:16.630Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-26T03:16:58.328Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-page-toc-button/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+
