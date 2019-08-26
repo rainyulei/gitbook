@@ -1,0 +1,750 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>3.10 Mongoose 基于Model的更新操作 · Notes</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="yu-Lei ">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-multipart/multipart.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-page-toc-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="3.11 Mongoose 的自定义方法.html" />
+    
+    
+    <link rel="prev" href="3.9 Mongoose基于Model的新增和删除操作.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://rainyulei.github.io" target="_blank" class="custom-link">yu-lei's Blog</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../1 Koa/">
+            
+                <a href="../1 Koa/">
+            
+                    
+                    1 Koa
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../1 Koa/1.1 DOC-Koa 以及中间件学习笔记.html">
+            
+                <a href="../1 Koa/1.1 DOC-Koa 以及中间件学习笔记.html">
+            
+                    
+                    1.1 DOC-Koa 以及中间件学习笔记
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../1 Koa/1.2 KoaRouter.html">
+            
+                <a href="../1 Koa/1.2 KoaRouter.html">
+            
+                    
+                    1.2 KoaRouter
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../1 Koa/1.3 Koa 中间件.html">
+            
+                <a href="../1 Koa/1.3 Koa 中间件.html">
+            
+                    
+                    1.3 Koa 中间件
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    2 Mongo DB
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../2 MongoDB/2.1 MongoDB创建数据库和表.html">
+            
+                <a href="../2 MongoDB/2.1 MongoDB创建数据库和表.html">
+            
+                    
+                    2.1 MongoDB创建数据库和表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../2 MongoDB/2.2 MongooDB基本的CRUD操作 - 副本.html">
+            
+                <a href="../2 MongoDB/2.2 MongooDB基本的CRUD操作 - 副本.html">
+            
+                    
+                    2.2 MongooDB基本的CRUD操作 - 副本
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../2 MongoDB/2.3 MongooDB索引和权限配置.html">
+            
+                <a href="../2 MongoDB/2.3 MongooDB索引和权限配置.html">
+            
+                    
+                    2.3 MongooDB索引和权限配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../2 MongoDB/2.4 MongooDB聚合管道.html">
+            
+                <a href="../2 MongoDB/2.4 MongooDB聚合管道.html">
+            
+                    
+                    2.4 MongooDB聚合管道
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../2 MongoDB/2.5 MongooDB需要注意的点以及数组内操作.html">
+            
+                <a href="../2 MongoDB/2.5 MongooDB需要注意的点以及数组内操作.html">
+            
+                    
+                    2.5 MongooDB需要注意的点以及数组内操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../2 MongoDB/2.6 MongoDB的服务器配置.html">
+            
+                <a href="../2 MongoDB/2.6 MongoDB的服务器配置.html">
+            
+                    
+                    2.6 MongoDB的服务器配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    3 Mongoose
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="3.1 Mongoose安装、创建、连接.html">
+            
+                <a href="3.1 Mongoose安装、创建、连接.html">
+            
+                    
+                    3.1 Mongoose安装、创建、连接
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="3.2 Mongoose的初步理解和简化流程.html">
+            
+                <a href="3.2 Mongoose的初步理解和简化流程.html">
+            
+                    
+                    3.2 Mongoose的初步理解和简化流程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="3.3 Mongoose的Schema、modle、document.html">
+            
+                <a href="3.3 Mongoose的Schema、modle、document.html">
+            
+                    
+                    3.3 Mongoose的Schema、modle、document
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="3.4 Mongoose Schema的类型校验.html">
+            
+                <a href="3.4 Mongoose Schema的类型校验.html">
+            
+                    
+                    3.4 Mongoose Schema的类型校验
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="3.5 Schema的配置项.html">
+            
+                <a href="3.5 Schema的配置项.html">
+            
+                    
+                    3.5 Schema的配置项
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="3.6  Mongoose 基于DOC（实体）的CRUD.html">
+            
+                <a href="3.6  Mongoose 基于DOC（实体）的CRUD.html">
+            
+                    
+                    3.6  Mongoose 基于DOC（实体）的CRUD
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="3.7 Mongoose基于Model的查询操作.html">
+            
+                <a href="3.7 Mongoose基于Model的查询操作.html">
+            
+                    
+                    3.7 Mongoose基于Model的查询操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="3.8 Mongoose的查询后处理.html">
+            
+                <a href="3.8 Mongoose的查询后处理.html">
+            
+                    
+                    3.8 Mongoose的查询后处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="3.9 Mongoose基于Model的新增和删除操作.html">
+            
+                <a href="3.9 Mongoose基于Model的新增和删除操作.html">
+            
+                    
+                    3.9 Mongoose基于Model的新增和删除操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.10" data-path="3.10 Mongoose 基于Model的更新操作.html">
+            
+                <a href="3.10 Mongoose 基于Model的更新操作.html">
+            
+                    
+                    3.10 Mongoose 基于Model的更新操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.11" data-path="3.11 Mongoose 的自定义方法.html">
+            
+                <a href="3.11 Mongoose 的自定义方法.html">
+            
+                    
+                    3.11 Mongoose 的自定义方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.12" data-path="3.12 Mongoose的中间件.html">
+            
+                <a href="3.12 Mongoose的中间件.html">
+            
+                    
+                    3.12 Mongoose的中间件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.13" data-path="3.13 Mongoose的复杂操作.html">
+            
+                <a href="3.13 Mongoose的复杂操作.html">
+            
+                    
+                    3.13 Mongoose的复杂操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >3.10 Mongoose 基于Model的更新操作</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x57FA;&#x4E8E;model&#x7684;&#x6587;&#x6863;&#x66F4;&#x65B0;">&#x57FA;&#x4E8E;model&#x7684;&#x6587;&#x6863;&#x66F4;&#x65B0;</h1>
+<p>&#x3000;&#x3000;&#x6587;&#x6863;&#x66F4;&#x65B0;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4EE5;&#x4E0B;&#x51E0;&#x79CD;&#x65B9;&#x6CD5;</p>
+<pre><code class="lang-js">update()<span class="hljs-comment">//&#x5F80;&#x4E0A;&#x6539;</span>
+updateMany() <span class="hljs-comment">//&#x6539;&#x591A;&#x4E2A;</span>
+updateOne() <span class="hljs-comment">//&#x6539;&#x4E00;&#x4E2A;</span>
+findByIdAndUpdate() <span class="hljs-comment">//&#x901A;&#x8FC7;i&#x7684;&#x67E5;&#x8BE2; &#x7136;&#x540E;&#x6539;</span>
+fingOneAndUpdate() <span class="hljs-comment">//&#x627E;&#x5230;&#x4E00;&#x4E2A;&#x5C31;&#x6539;</span>
+find() + save()<span class="hljs-comment">//&#x6808; &#x8BA9;&#x7136;&#x540E;&#x6539;</span>
+findOne() + save()<span class="hljs-comment">//&#x627E;&#x4E00;&#x4E2A;&#x6539;</span>
+</code></pre>
+<h2 id="update">update()</h2>
+<p>&#x3000;&#x3000;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;conditions&#x4E3A;&#x67E5;&#x8BE2;&#x6761;&#x4EF6;&#xFF0C;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;doc&#x4E3A;&#x9700;&#x8981;&#x4FEE;&#x6539;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x7B2C;&#x4E09;&#x4E2A;&#x53C2;&#x6570;options&#x4E3A;&#x63A7;&#x5236;&#x9009;&#x9879;&#xFF0C;&#x7B2C;&#x56DB;&#x4E2A;&#x53C2;&#x6570;&#x662F;&#x56DE;&#x8C03;&#x51FD;&#x6570;</p>
+<pre><code class="lang-js">Model.update(conditions, doc, [options], [callback])
+</code></pre>
+<h3 id="options&#x6709;&#x5982;&#x4E0B;&#x9009;&#x9879;">options&#x6709;&#x5982;&#x4E0B;&#x9009;&#x9879;</h3>
+<pre><code class="lang-js">   safe (boolean)&#xFF1A; &#x9ED8;&#x8BA4;&#x4E3A;<span class="hljs-literal">true</span>&#x3002;&#x5B89;&#x5168;&#x6A21;&#x5F0F;&#x3002;
+&#x3000;&#x3000;upsert (boolean)&#xFF1A; &#x9ED8;&#x8BA4;&#x4E3A;<span class="hljs-literal">false</span>&#x3002;&#x5982;&#x679C;&#x4E0D;&#x5B58;&#x5728;&#x5219;&#x521B;&#x5EFA;&#x65B0;&#x8BB0;&#x5F55;&#x3002;
+&#x3000;&#x3000;multi (boolean)&#xFF1A; &#x9ED8;&#x8BA4;&#x4E3A;<span class="hljs-literal">false</span>&#x3002;&#x662F;&#x5426;&#x66F4;&#x65B0;&#x591A;&#x4E2A;&#x67E5;&#x8BE2;&#x8BB0;&#x5F55;&#x3002;
+&#x3000;&#x3000;runValidators&#xFF1A; &#x5982;&#x679C;&#x503C;&#x4E3A;<span class="hljs-literal">true</span>&#xFF0C;&#x6267;&#x884C;Validation&#x9A8C;&#x8BC1;&#x3002;
+&#x3000;&#x3000;setDefaultsOnInsert&#xFF1A; &#x5982;&#x679C;upsert&#x9009;&#x9879;&#x4E3A;<span class="hljs-literal">true</span>&#xFF0C;&#x5728;&#x65B0;&#x5EFA;&#x65F6;&#x63D2;&#x5165;&#x6587;&#x6863;&#x5B9A;&#x4E49;&#x7684;&#x9ED8;&#x8BA4;&#x503C;&#x3002;
+&#x3000;&#x3000;strict (boolean)&#xFF1A; &#x4EE5;strict&#x6A21;&#x5F0F;&#x8FDB;&#x884C;&#x66F4;&#x65B0;&#x3002;
+&#x3000;&#x3000;overwrite (boolean)&#xFF1A; &#x9ED8;&#x8BA4;&#x4E3A;<span class="hljs-literal">false</span>&#x3002;&#x7981;&#x7528;update-only&#x6A21;&#x5F0F;&#xFF0C;&#x5141;&#x8BB8;&#x8986;&#x76D6;&#x8BB0;&#x5F55;&#x3002;
+</code></pre>
+<p>&#x3000;&#x3000;&#x73B0;&#x5728;&#x4F7F;&#x7528;update()&#x65B9;&#x6CD5;&#x67E5;&#x8BE2;age&#x5927;&#x4E8E;20&#x7684;&#x6570;&#x636E;&#xFF0C;&#x5E76;&#x5C06;&#x5176;&#x5E74;&#x9F84;&#x66F4;&#x6539;&#x4E3A;40&#x5C81;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> mongoose = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;mongoose&apos;</span>);
+mongoose.connect(<span class="hljs-string">&quot;mongodb://u1:123456@localhost/db1&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>) </span>{
+    <span class="hljs-keyword">if</span>(!err){
+        <span class="hljs-keyword">var</span> schema = <span class="hljs-keyword">new</span> mongoose.Schema({ age:<span class="hljs-built_in">Number</span>, name: <span class="hljs-built_in">String</span>});        
+        <span class="hljs-keyword">var</span> temp = mongoose.model(<span class="hljs-string">&apos;temp&apos;</span>, schema);   
+        temp.update({age:{$gte:<span class="hljs-number">20</span>}},{age:<span class="hljs-number">40</span>},<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err,raw</span>)</span>{
+            <span class="hljs-comment">//{ n: 1, nModified: 1, ok: 1 }</span>
+            <span class="hljs-built_in">console</span>.log(raw);
+        })
+
+    }           
+});
+</code></pre>
+<p>&#x3000;&#x3000;&#x5982;&#x679C;&#x8981;&#x540C;&#x65F6;&#x66F4;&#x65B0;&#x591A;&#x4E2A;&#x8BB0;&#x5F55;&#xFF0C;&#x9700;&#x8981;&#x8BBE;&#x7F6E;options&#x91CC;&#x7684;multi&#x4E3A;true&#x3002;&#x4E0B;&#x9762;&#x5C06;&#x540D;&#x5B57;&#x4E2D;&#x6709;&apos;a&apos;&#x5B57;&#x7B26;&#x7684;&#x5E74;&#x9F84;&#x8BBE;&#x7F6E;&#x4E3A;10&#x5C81;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> mongoose = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;mongoose&apos;</span>);
+mongoose.connect(<span class="hljs-string">&quot;mongodb://u1:123456@localhost/db1&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>) </span>{
+    <span class="hljs-keyword">if</span>(!err){
+        <span class="hljs-keyword">var</span> schema = <span class="hljs-keyword">new</span> mongoose.Schema({ age:<span class="hljs-built_in">Number</span>, name: <span class="hljs-built_in">String</span>});        
+        <span class="hljs-keyword">var</span> temp = mongoose.model(<span class="hljs-string">&apos;temp&apos;</span>, schema);   
+        temp.update({name:<span class="hljs-regexp">/a/</span>},{age: <span class="hljs-number">10</span>},{multi:<span class="hljs-literal">true</span>},<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err,raw</span>)</span>{
+            <span class="hljs-comment">//{ n: 2, nModified: 2, ok: 1 }</span>
+            <span class="hljs-built_in">console</span>.log(raw);
+        })
+
+    }           
+});
+</code></pre>
+<p>&#x3000;&#x3000;&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x7684;&#x67E5;&#x627E;&#x6761;&#x4EF6;&#xFF0C;&#x6570;&#x636E;&#x5E93;&#x91CC;&#x7684;&#x6570;&#x636E;&#x5E76;&#x4E0D;&#x6EE1;&#x8DB3;&#xFF0C;&#x9ED8;&#x8BA4;&#x4EC0;&#x4E48;&#x4E8B;&#x90FD;&#x4E0D;&#x53D1;&#x751F;</p>
+<pre><code class="lang-js">temp.update({age:<span class="hljs-number">100</span>},{name: <span class="hljs-string">&quot;hundred&quot;</span>},<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err,raw</span>)</span>{
+    <span class="hljs-comment">//{ n: 0, nModified: 0, ok: 1 }</span>
+    <span class="hljs-built_in">console</span>.log(raw);
+})
+</code></pre>
+<p>&#x3000;&#x3000;&#x5982;&#x679C;&#x8BBE;&#x7F6E;options&#x91CC;&#x7684;upsert&#x53C2;&#x6570;&#x4E3A;true&#xFF0C;&#x82E5;&#x6CA1;&#x6709;&#x7B26;&#x5408;&#x67E5;&#x8BE2;&#x6761;&#x4EF6;&#x7684;&#x6587;&#x6863;&#xFF0C;mongo&#x5C06;&#x4F1A;&#x7EFC;&#x5408;&#x7B2C;&#x4E00;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x5411;&#x96C6;&#x5408;&#x63D2;&#x5165;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x6587;&#x6863;</p>
+<pre><code class="lang-js">temp.update({age:<span class="hljs-number">100</span>},{name: <span class="hljs-string">&quot;hundred&quot;</span>},{upsert:<span class="hljs-literal">true</span>},<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err,raw</span>)</span>{
+    <span class="hljs-comment">//{ n: 1, nModified: 0,upserted: [ { index: 0, _id: 5972c202d46b621fca7fc8c7 } ], ok: 1 }</span>
+    <span class="hljs-built_in">console</span>.log(raw);
+})
+</code></pre>
+<pre><code class="lang-js">temp.update({name:<span class="hljs-regexp">/aa/</span>},{age: <span class="hljs-number">0</span>},{upsert:<span class="hljs-literal">true</span>},<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err,raw</span>)</span>{
+    <span class="hljs-comment">//{ n: 1, nModified: 0,upserted: [ { index: 0, _id: 5972c288d46b621fca7fdd8f } ], ok: 1 }</span>
+    <span class="hljs-built_in">console</span>.log(raw);
+})
+</code></pre>
+<blockquote>
+<p>&#x3000;[&#x6CE8;&#x610F;]update()&#x65B9;&#x6CD5;&#x4E2D;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x4E0D;&#x80FD;&#x7701;&#x7565;&#xFF0C;&#x5426;&#x5219;&#x6570;&#x636E;&#x4E0D;&#x4F1A;&#x88AB;&#x66F4;&#x65B0;&#x3002;&#x5982;&#x679C;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x91CC;&#x5E76;&#x6CA1;&#x6709;&#x4EC0;&#x4E48;&#x6709;&#x7528;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x5219;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;exec()&#x7B80;&#x5316;&#x4EE3;&#x7801;</p>
+</blockquote>
+<pre><code class="lang-js">temp.update({name:<span class="hljs-regexp">/aa/</span>},{age: <span class="hljs-number">0</span>},{upsert:<span class="hljs-literal">true</span>}).exec();
+</code></pre>
+<h2 id="&#x66F4;&#x65B0;&#x5B50;&#x6587;&#x6863;&#x7684;&#x65B9;&#x6CD5;">&#x66F4;&#x65B0;&#x5B50;&#x6587;&#x6863;&#x7684;&#x65B9;&#x6CD5;</h2>
+<pre><code class="lang-javascript"><span class="hljs-comment">//&#x8FD9;&#x91CC;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x8981;&#x627E;&#x5230;&#x5B50;&#x6587;&#x6863;&#x7684;&#x4F4D;&#x7F6E;  &#x5177;&#x4F53;&#x5230;&#x54EA;&#x4E00;&#x6761;&#x6570;&#x636E;&#x7684;&#x54EA;&#x4E00;&#x4E2A;&#x5B50;&#x6587;&#x6863;</span>
+temp.update({<span class="hljs-string">&quot;userid&quot;</span>:userid,<span class="hljs-string">&quot;cartList.productId&quot;</span>:productId},
+            <span class="hljs-comment">//&#x8FD9;&#x91CC;&#x8981;&#x66F4;&#x65B0;&#x7684;&#x5C5E;&#x6027;&#x662F;  &#x5B50;&#x6587;&#x6863;  &#x7136;&#x540E; .$.&#x8981;&#x66F4;&#x6539;&#x7684;&#x5C5E;&#x6027;   &#xFF1A;  &#x503C;</span>
+{cartList.$.productNum:<span class="hljs-number">10</span>},[opintion],<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err,doc</span>)</span>{
+    <span class="hljs-keyword">if</span>(err){
+        res.json({
+            status:
+            result:
+            msg:
+        })
+        <span class="hljs-keyword">return</span>
+    }
+    doc...<span class="hljs-comment">//TODO</span>
+})
+</code></pre>
+<h2 id="updatemany">updateMany()</h2>
+<p>&#x3000;&#x3000;updateMany()&#x4E0E;update()&#x65B9;&#x6CD5;&#x552F;&#x4E00;&#x7684;&#x533A;&#x522B;&#x5C31;&#x662F;&#x9ED8;&#x8BA4;&#x66F4;&#x65B0;&#x591A;&#x4E2A;&#x6587;&#x6863;&#xFF0C;&#x5373;&#x4F7F;&#x8BBE;&#x7F6E;{multi:false}&#x4E5F;&#x65E0;&#x6CD5;&#x53EA;&#x66F4;&#x65B0;&#x7B2C;&#x4E00;&#x4E2A;&#x6587;&#x6863;</p>
+<pre><code class="lang-javascript">Model.updateMany(conditions, doc, [options], [callback])
+</code></pre>
+<p>&#x3000;&#x3000;&#x5C06;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x540D;&#x5B57;&#x4E2D;&#x5E26;&#x6709;&apos;huo&apos;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x5E74;&#x9F84;&#x53D8;&#x4E3A;50&#x5C81;</p>
+<pre><code class="lang-javascript">temp.updateMany({name:<span class="hljs-regexp">/huo/</span>},{age:<span class="hljs-number">50</span>},<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err,raw</span>)</span>{
+    <span class="hljs-comment">//{ n: 2, nModified: 2, ok: 1 }</span>
+    <span class="hljs-built_in">console</span>.log(raw);
+});
+</code></pre>
+<h2 id="find--save">find() + save()</h2>
+<p>&#x3000;&#x3000;&#x5982;&#x679C;&#x9700;&#x8981;&#x66F4;&#x65B0;&#x7684;&#x64CD;&#x4F5C;&#x6BD4;&#x8F83;&#x590D;&#x6742;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;find()+save()&#x65B9;&#x6CD5;&#x6765;&#x5904;&#x7406;&#xFF0C;&#x6BD4;&#x5982;&#x627E;&#x5230;&#x5E74;&#x9F84;&#x5C0F;&#x4E8E;30&#x5C81;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x540D;&#x5B57;&#x540E;&#x9762;&#x6DFB;&#x52A0;&apos;30&apos;&#x5B57;&#x7B26;</p>
+<pre><code class="lang-javascript">temp.find({age:{$lt:<span class="hljs-number">20</span>}},<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err,docs</span>)</span>{
+    <span class="hljs-comment">//[ { _id: 5971f93be6f98ec60e3dc86d, name: &apos;wang&apos;, age: 10 },</span>
+    <span class="hljs-comment">//{ _id: 5971f93be6f98ec60e3dc86f, name: &apos;li&apos;, age: 12 }]</span>
+    <span class="hljs-built_in">console</span>.log(docs);
+    docs.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">item,index,arr</span>)</span>{
+        item.name += <span class="hljs-string">&apos;30&apos;</span>;
+        item.save();
+    })
+    <span class="hljs-comment">//[ { _id: 5971f93be6f98ec60e3dc86d, name: &apos;wang30&apos;, age: 10 },</span>
+    <span class="hljs-comment">// { _id: 5971f93be6f98ec60e3dc86f, name: &apos;li30&apos;, age: 12 }]</span>
+    <span class="hljs-built_in">console</span>.log(docs);
+});
+</code></pre>
+<h2 id="updateone">updateOne()</h2>
+<p> &#x3000;&#x3000;updateOne()&#x65B9;&#x6CD5;&#x53EA;&#x80FD;&#x66F4;&#x65B0;&#x627E;&#x5230;&#x7684;&#x7B2C;&#x4E00;&#x6761;&#x6570;&#x636E;&#xFF0C;&#x5373;&#x4F7F;&#x8BBE;&#x7F6E;{multi:true}&#x4E5F;&#x65E0;&#x6CD5;&#x540C;&#x65F6;&#x66F4;&#x65B0;&#x591A;&#x4E2A;&#x6587;&#x6863;</p>
+<p>&#x3000;&#x3000;&#x5C06;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x540D;&#x5B57;&#x4E2D;&#x5E26;&#x6709;&apos;huo&apos;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x5E74;&#x9F84;&#x53D8;&#x4E3A;60&#x5C81;</p>
+<pre><code class="lang-javascript">temp.updateOne({name:<span class="hljs-regexp">/huo/</span>},{age:<span class="hljs-number">60</span>},<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err,raw</span>)</span>{
+    <span class="hljs-comment">//{ n: 1, nModified: 1, ok: 1 }</span>
+    <span class="hljs-built_in">console</span>.log(raw);
+});
+</code></pre>
+<h2 id="findone--save">findOne() + save()</h2>
+<p>&#x3000;&#x3000;&#x5982;&#x679C;&#x9700;&#x8981;&#x66F4;&#x65B0;&#x7684;&#x64CD;&#x4F5C;&#x6BD4;&#x8F83;&#x590D;&#x6742;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;findOne()+save()&#x65B9;&#x6CD5;&#x6765;&#x5904;&#x7406;&#xFF0C;&#x6BD4;&#x5982;&#x627E;&#x5230;&#x540D;&#x5B57;&#x4E3A;&apos;huochai&apos;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x5E74;&#x9F84;&#x52A0;100&#x5C81;</p>
+<pre><code class="lang-javascript">temp.findOne({name:<span class="hljs-string">&apos;huochai&apos;</span>},<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err,doc</span>)</span>{
+    <span class="hljs-comment">//{ _id: 5971f93be6f98ec60e3dc86c, name: &apos;huochai&apos;, age: 10 }</span>
+    <span class="hljs-built_in">console</span>.log(doc);
+    doc.age += <span class="hljs-number">100</span>;
+    doc.save();
+    <span class="hljs-comment">//{ _id: 5971f93be6f98ec60e3dc86c, name: &apos;huochai&apos;, age: 110 }</span>
+    <span class="hljs-built_in">console</span>.log(doc);
+});
+</code></pre>
+<h2 id="findoneandupdate">findOneAndUpdate()</h2>
+<p>&#x3000;&#x3000;fineOneAndUpdate()&#x65B9;&#x6CD5;&#x7684;&#x7B2C;&#x56DB;&#x4E2A;&#x53C2;&#x6570;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x7684;&#x5F62;&#x5F0F;&#x5982;&#x4E0B;function(err,doc){}</p>
+<pre><code class="lang-javascript">Model.findOneAndUpdate([conditions], [update], [options], [callback])
+</code></pre>
+<h2 id="findbyidandupdate">findByIdAndUpdate</h2>
+<p>&#x3000;&#x3000; fineByIdAndUpdate()&#x65B9;&#x6CD5;&#x7684;&#x7B2C;&#x56DB;&#x4E2A;&#x53C2;&#x6570;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x7684;&#x5F62;&#x5F0F;&#x5982;&#x4E0B;function(err,doc){}</p>
+<pre><code class="lang-javascript">Model.findOneAndUpdate([conditions], [update], [options], [callback])
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="3.9 Mongoose基于Model的新增和删除操作.html" class="navigation navigation-prev " aria-label="Previous page: 3.9 Mongoose基于Model的新增和删除操作">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="3.11 Mongoose 的自定义方法.html" class="navigation navigation-next " aria-label="Next page: 3.11 Mongoose 的自定义方法">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"3.10 Mongoose 基于Model的更新操作","level":"1.4.10","depth":2,"next":{"title":"3.11 Mongoose 的自定义方法","level":"1.4.11","depth":2,"path":"3 Mongoose/3.11 Mongoose 的自定义方法.md","ref":"3 Mongoose/3.11 Mongoose 的自定义方法.md","articles":[]},"previous":{"title":"3.9 Mongoose基于Model的新增和删除操作","level":"1.4.9","depth":2,"path":"3 Mongoose/3.9 Mongoose基于Model的新增和删除操作.md","ref":"3 Mongoose/3.9 Mongoose基于Model的新增和删除操作.md","articles":[]},"dir":"ltr"},"config":{"plugins":["multipart","chapter-fold","page-toc-button","splitter","-lunr","-search","search-pro","theme-comscore"],"ignores":["Node Modules"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"splitter":{},"search-pro":{},"multipart":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"yu-Lei ","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"bookname":"Notes","variables":{},"title":"Notes","catalog":["1 Koa","2 MongoDB","3 Mongoose"],"links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"yu-lei's Blog":"https://rainyulei.github.io"}},"gitbook":"*","unchanged":[],"description":"some notes","outputfile":"SUMMARY.md","theme-default":{"showLevel":true},"extension":null},"file":{"path":"3 Mongoose/3.10 Mongoose 基于Model的更新操作.md","mtime":"2019-08-26T10:32:24.410Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-26T10:54:02.996Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-page-toc-button/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -1,0 +1,792 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>3.3 Mongoose的Schema、modle、document · Notes</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="yu-Lei ">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-multipart/multipart.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-page-toc-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="3.4 Mongoose Schema的类型校验.html" />
+    
+    
+    <link rel="prev" href="3.2 Mongoose的初步理解和简化流程.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://rainyulei.github.io" target="_blank" class="custom-link">yu-lei's Blog</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../1 Koa/">
+            
+                <a href="../1 Koa/">
+            
+                    
+                    1 Koa
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../1 Koa/1.1 DOC-Koa 以及中间件学习笔记.html">
+            
+                <a href="../1 Koa/1.1 DOC-Koa 以及中间件学习笔记.html">
+            
+                    
+                    1.1 DOC-Koa 以及中间件学习笔记
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../1 Koa/1.2 KoaRouter.html">
+            
+                <a href="../1 Koa/1.2 KoaRouter.html">
+            
+                    
+                    1.2 KoaRouter
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../1 Koa/1.3 Koa 中间件.html">
+            
+                <a href="../1 Koa/1.3 Koa 中间件.html">
+            
+                    
+                    1.3 Koa 中间件
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    2 Mongo DB
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../2 MongoDB/2.1 MongoDB创建数据库和表.html">
+            
+                <a href="../2 MongoDB/2.1 MongoDB创建数据库和表.html">
+            
+                    
+                    2.1 MongoDB创建数据库和表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../2 MongoDB/2.2 MongooDB基本的CRUD操作 - 副本.html">
+            
+                <a href="../2 MongoDB/2.2 MongooDB基本的CRUD操作 - 副本.html">
+            
+                    
+                    2.2 MongooDB基本的CRUD操作 - 副本
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../2 MongoDB/2.3 MongooDB索引和权限配置.html">
+            
+                <a href="../2 MongoDB/2.3 MongooDB索引和权限配置.html">
+            
+                    
+                    2.3 MongooDB索引和权限配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../2 MongoDB/2.4 MongooDB聚合管道.html">
+            
+                <a href="../2 MongoDB/2.4 MongooDB聚合管道.html">
+            
+                    
+                    2.4 MongooDB聚合管道
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../2 MongoDB/2.5 MongooDB需要注意的点以及数组内操作.html">
+            
+                <a href="../2 MongoDB/2.5 MongooDB需要注意的点以及数组内操作.html">
+            
+                    
+                    2.5 MongooDB需要注意的点以及数组内操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../2 MongoDB/2.6 MongoDB的服务器配置.html">
+            
+                <a href="../2 MongoDB/2.6 MongoDB的服务器配置.html">
+            
+                    
+                    2.6 MongoDB的服务器配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    3 Mongoose
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="3.1 Mongoose安装、创建、连接.html">
+            
+                <a href="3.1 Mongoose安装、创建、连接.html">
+            
+                    
+                    3.1 Mongoose安装、创建、连接
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="3.2 Mongoose的初步理解和简化流程.html">
+            
+                <a href="3.2 Mongoose的初步理解和简化流程.html">
+            
+                    
+                    3.2 Mongoose的初步理解和简化流程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.3" data-path="3.3 Mongoose的Schema、modle、document.html">
+            
+                <a href="3.3 Mongoose的Schema、modle、document.html">
+            
+                    
+                    3.3 Mongoose的Schema、modle、document
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="3.4 Mongoose Schema的类型校验.html">
+            
+                <a href="3.4 Mongoose Schema的类型校验.html">
+            
+                    
+                    3.4 Mongoose Schema的类型校验
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="3.5 Schema的配置项.html">
+            
+                <a href="3.5 Schema的配置项.html">
+            
+                    
+                    3.5 Schema的配置项
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="3.6  Mongoose 基于DOC（实体）的CRUD.html">
+            
+                <a href="3.6  Mongoose 基于DOC（实体）的CRUD.html">
+            
+                    
+                    3.6  Mongoose 基于DOC（实体）的CRUD
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="3.7 Mongoose基于Model的查询操作.html">
+            
+                <a href="3.7 Mongoose基于Model的查询操作.html">
+            
+                    
+                    3.7 Mongoose基于Model的查询操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="3.8 Mongoose的查询后处理.html">
+            
+                <a href="3.8 Mongoose的查询后处理.html">
+            
+                    
+                    3.8 Mongoose的查询后处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="3.9 Mongoose基于Model的新增和删除操作.html">
+            
+                <a href="3.9 Mongoose基于Model的新增和删除操作.html">
+            
+                    
+                    3.9 Mongoose基于Model的新增和删除操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="3.10 Mongoose 基于Model的更新操作.html">
+            
+                <a href="3.10 Mongoose 基于Model的更新操作.html">
+            
+                    
+                    3.10 Mongoose 基于Model的更新操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.11" data-path="3.11 Mongoose 的自定义方法.html">
+            
+                <a href="3.11 Mongoose 的自定义方法.html">
+            
+                    
+                    3.11 Mongoose 的自定义方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.12" data-path="3.12 Mongoose的中间件.html">
+            
+                <a href="3.12 Mongoose的中间件.html">
+            
+                    
+                    3.12 Mongoose的中间件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.13" data-path="3.13 Mongoose的复杂操作.html">
+            
+                <a href="3.13 Mongoose的复杂操作.html">
+            
+                    
+                    3.13 Mongoose的复杂操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >3.3 Mongoose的Schema、modle、document</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="mongoose&#x7684;schema&#x3001;modle&#x3001;document">Mongoose&#x7684;Schema&#x3001;modle&#x3001;document</h1>
+<h2 id="schema">Schema</h2>
+<p>&#x6211;&#x7406;&#x89E3;<code>Schema</code>&#x4EC5;&#x4EC5;&#x53EA;&#x662F;&#x4E00;&#x65AD;&#x4EE3;&#x7801;&#xFF0C;&#x4ED6;&#x4E66;&#x5199;&#x5B8C;&#x6210;&#x540E;&#x7A0B;&#x5E8F;&#x4F9D;&#x7136;&#x65E0;&#x6CD5;&#x4F7F;&#x7528;&#xFF0C;&#x66F4;&#x65E0;&#x6CD5;&#x901A;&#x5F80;&#x6570;&#x636E;&#x5E93;&#x7AEF;&#xFF0C;&#x4ED6;&#x4EC5;&#x4EC5;&#x53EA;&#x662F;&#x6570;&#x636E;&#x5E93;&#x6A21;&#x578B;&#x5728;&#x7A0B;&#x5E8F;&#x7247;&#x6BB5;&#x4E2D;&#x7684;&#x4E00;&#x79CD;&#x8868;&#x73B0;&#xFF0C;&#x6216;&#x8005;&#x662F;&#x6570;&#x636E;&#x5C5E;&#x6027;&#x6A21;&#x578B;&#xFF0C;Schema&#x4E3B;&#x8981;&#x7528;&#x4E8E;&#x5B9A;&#x4E49;MongoDB&#x4E2D;&#x96C6;&#x5408;Collection&#x91CC;&#x6587;&#x6863;document&#x7684;&#x7ED3;&#x6784;&#x7C7B;&#x578B;&#x3002;&#x3000;</p>
+<pre><code class="lang-js"><span class="hljs-comment">// schema &#x662F;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x7684;&#x8303;&#x5F0F; </span>
+<span class="hljs-keyword">var</span> mongoose = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;mongoose&apos;</span>);
+<span class="hljs-keyword">var</span> Schema = mongoose.Schema;
+
+<span class="hljs-keyword">var</span> mySchema = <span class="hljs-keyword">new</span> Schema({
+  title:  <span class="hljs-built_in">String</span>,
+  author: <span class="hljs-built_in">String</span>,
+  body:   <span class="hljs-built_in">String</span>,
+  comments: [{ body: <span class="hljs-built_in">String</span>, date: <span class="hljs-built_in">Date</span> }],
+  date: { type: <span class="hljs-built_in">Date</span>, <span class="hljs-keyword">default</span>: <span class="hljs-built_in">Date</span>.now },
+  hidden: <span class="hljs-built_in">Boolean</span>,
+  meta: {
+    votes: <span class="hljs-built_in">Number</span>,
+    favs:  <span class="hljs-built_in">Number</span>
+  }
+});
+</code></pre>
+<h3 id="types">types</h3>
+<ul>
+<li>String      &#x5B57;&#x7B26;&#x4E32;</li>
+<li>Number      &#x6570;&#x5B57;    </li>
+<li>Date        &#x65E5;&#x671F;</li>
+<li>Buffer      &#x4E8C;&#x8FDB;&#x5236;</li>
+<li>Boolean     &#x5E03;&#x5C14;&#x503C;</li>
+<li>Mixed       &#x6DF7;&#x5408;&#x7C7B;&#x578B;</li>
+<li>ObjectId    &#x5BF9;&#x8C61;ID    &#x4E3B;&#x952E;</li>
+<li>Array       &#x6570;&#x7EC4;</li>
+<li>_fk:Schema.Types.ObjectId,  //&#x5916;&#x952E;</li>
+<li>[String] &#x6570;&#x7EC4;[Number],[Date],[Buffer],[Boolean],Schema.Types.Mixed],[Schema.Types.ObjectId]</li>
+</ul>
+<blockquote>
+<p>[&#x6CE8;&#x610F;]&#x521B;&#x5EFA;Schema&#x5BF9;&#x8C61;&#x65F6;&#xFF0C;&#x58F0;&#x660E;&#x5B57;&#x6BB5;&#x7C7B;&#x578B;&#x6709;&#x4E24;&#x79CD;&#x65B9;&#x6CD5;&#xFF0C;&#x4E00;&#x79CD;&#x662F;&#x9996;&#x5B57;&#x6BCD;&#x5927;&#x5199;&#x7684;&#x5B57;&#x6BB5;&#x7C7B;&#x578B;&#xFF0C;&#x53E6;&#x4E00;&#x79CD;&#x662F;&#x5F15;&#x53F7;&#x5305;&#x542B;&#x7684;&#x5C0F;&#x5199;&#x5B57;&#x6BB5;&#x7C7B;&#x578B;</p>
+</blockquote>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> mySchema = <span class="hljs-keyword">new</span> Schema({title:<span class="hljs-built_in">String</span>, author:<span class="hljs-built_in">String</span>});
+<span class="hljs-comment">//&#x6216;&#x8005; </span>
+<span class="hljs-keyword">var</span> mySchema = <span class="hljs-keyword">new</span> Schema({title:<span class="hljs-string">&apos;string&apos;</span>, author:<span class="hljs-string">&apos;string&apos;</span>});
+</code></pre>
+<p>&#x3000;&#x3000;&#x5982;&#x679C;&#x9700;&#x8981;&#x5728;Schema&#x5B9A;&#x4E49;&#x540E;&#x6DFB;&#x52A0;&#x5176;&#x4ED6;&#x5B57;&#x6BB5;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>add()</code>&#x65B9;&#x6CD5;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> MySchema = <span class="hljs-keyword">new</span> Schema;
+MySchema.add({ name: <span class="hljs-string">&apos;string&apos;</span>, color: <span class="hljs-string">&apos;string&apos;</span>, price: <span class="hljs-string">&apos;number&apos;</span> });
+</code></pre>
+<h3 id="timestamps">timestamps</h3>
+<p>&#x3000;&#x3000;&#x5728;schema&#x4E2D;&#x8BBE;&#x7F6E;timestamps&#x4E3A;true&#xFF0C;schema&#x6620;&#x5C04;&#x7684;&#x6587;&#x6863;document&#x4F1A;&#x81EA;&#x52A8;&#x6DFB;&#x52A0;<code>createdAt&#x548C;updatedAt</code>&#x8FD9;&#x4E24;&#x4E2A;&#x5B57;&#x6BB5;&#xFF0C;&#x4EE3;&#x8868;&#x521B;&#x5EFA;&#x65F6;&#x95F4;&#x548C;&#x66F4;&#x65B0;&#x65F6;&#x95F4;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> UserSchema = <span class="hljs-keyword">new</span> Schema(
+  {...},
+  { timestamps: <span class="hljs-literal">true</span> }
+);
+</code></pre>
+<h3 id="id">_id</h3>
+<p>&#x3000;&#x3000;&#x6BCF;&#x4E00;&#x4E2A;&#x6587;&#x6863;document&#x90FD;&#x4F1A;&#x88AB;mongoose&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x4E0D;&#x91CD;&#x590D;&#x7684;_id&#xFF0C;_id&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x4E0D;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x800C;&#x662F;ObjectID&#x7C7B;&#x578B;&#x3002;&#x5982;&#x679C;&#x5728;&#x67E5;&#x8BE2;&#x8BED;&#x53E5;&#x4E2D;&#x8981;&#x4F7F;&#x7528;_id&#xFF0C;&#x5219;&#x9700;&#x8981;&#x4F7F;&#x7528;findById&#x8BED;&#x53E5;&#xFF0C;&#x800C;&#x4E0D;&#x80FD;&#x4F7F;&#x7528;find&#x6216;findOne&#x8BED;&#x53E5;</p>
+<pre><code class="lang-js">    <span class="hljs-keyword">const</span> mongoose = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;mongoose&apos;</span>);
+    <span class="hljs-keyword">const</span> ObjectId = mongoose.Schema.Types.ObjectId;
+    <span class="hljs-keyword">const</span> StudentSchema = <span class="hljs-keyword">new</span> Schema({}); <span class="hljs-comment">//&#x9ED8;&#x8BA4;&#x4F1A;&#x6709;_id:ObjectId</span>
+    <span class="hljs-keyword">const</span> TeacherSchema = <span class="hljs-keyword">new</span> Schema({id:ObjectId});<span class="hljs-comment">//&#x53EA;&#x6709;id:ObjectId</span>
+</code></pre>
+<h3 id="array">Array</h3>
+<p><code>Array</code>&#x5728;<code>JavaScript</code>&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#x4E2D;&#x5E76;&#x4E0D;&#x662F;&#x6570;&#x7EC4;&#xFF0C;&#x800C;&#x662F;&#x96C6;&#x5408;&#xFF0C;&#x56E0;&#x6B64;&#x91CC;&#x9762;&#x53EF;&#x4EE5;&#x5B58;&#x5165;&#x4E0D;&#x540C;&#x7684;&#x503C;&#xFF0C;&#x4EE5;&#x4E0B;&#x4EE3;&#x7801;&#x7B49;&#x4EF7;&#xFF1A;</p>
+<pre><code class="lang-javascript">    <span class="hljs-keyword">const</span> Schema1 = <span class="hljs-keyword">new</span> Schema({array:[]});
+    <span class="hljs-keyword">const</span> Schema2 = <span class="hljs-keyword">new</span> Schema({array:<span class="hljs-built_in">Array</span>});
+    <span class="hljs-keyword">const</span> Schema3 = <span class="hljs-keyword">new</span> Schema({array:[Schema.Types.Mixed]});
+    <span class="hljs-keyword">const</span> Schema4 = <span class="hljs-keyword">new</span> Schema({array:[{}]});
+</code></pre>
+<h3 id="mixed">Mixed</h3>
+<p><code>Schema.Types.Mixed</code>&#x662F;<code>Mongoose</code>&#x5B9A;&#x4E49;&#x4E2A;&#x6DF7;&#x5408;&#x7C7B;&#x578B;&#xFF0C;&#x8BE5;&#x6DF7;&#x5408;&#x7C7B;&#x578B;&#x5982;&#x679C;&#x672A;&#x5B9A;&#x4E49;&#x5177;&#x4F53;&#x5F62;&#x5F0F;&#x3002;&#x56E0;&#x6B64;,&#x5982;&#x679C;&#x5B9A;&#x4E49;&#x5177;&#x4F53;&#x5185;&#x5BB9;&#xFF0C;&#x5C31;&#x76F4;&#x63A5;&#x4F7F;&#x7528;<code>{}</code>&#x6765;&#x5B9A;&#x4E49;&#xFF0C;&#x4EE5;&#x4E0B;&#x4E24;&#x53E5;&#x7B49;&#x4EF7;</p>
+<pre><code class="lang-javascript">    <span class="hljs-keyword">const</span> AnySchema = <span class="hljs-keyword">new</span> Schema({any:{}});
+    <span class="hljs-keyword">const</span> AnySchema = <span class="hljs-keyword">new</span> Schema({any:Schema.Types.Mixed});
+</code></pre>
+<p>&#x6DF7;&#x5408;&#x7C7B;&#x578B;&#x56E0;&#x4E3A;&#x6CA1;&#x6709;&#x7279;&#x5B9A;&#x7EA6;&#x675F;&#xFF0C;&#x56E0;&#x6B64;&#x53EF;&#x4EE5;&#x4EFB;&#x610F;&#x4FEE;&#x6539;&#xFF0C;&#x4E00;&#x65E6;&#x4FEE;&#x6539;&#x4E86;&#x539F;&#x578B;&#xFF0C;&#x5219;&#x5FC5;&#x987B;&#x8C03;&#x7528;<code>markModified()</code></p>
+<pre><code class="lang-javascript">    person.anything = {x:[<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,{y:<span class="hljs-string">&apos;change&apos;</span>}]}
+    person.markModified(<span class="hljs-string">&apos;anything&apos;</span>);<span class="hljs-comment">//&#x4F20;&#x5165;anything&#xFF0C;&#x8868;&#x793A;&#x8BE5;&#x5C5E;&#x6027;&#x7C7B;&#x578B;&#x53D1;&#x751F;&#x53D8;&#x5316;</span>
+    person.save();
+</code></pre>
+<h3 id="&#x9884;&#x5B9A;&#x4E49;&#x6A21;&#x5F0F;&#x4FEE;&#x9970;&#x7B26;">&#x9884;&#x5B9A;&#x4E49;&#x6A21;&#x5F0F;&#x4FEE;&#x9970;&#x7B26;</h3>
+<p>&#x5728;&#x914D;&#x7F6E;Schema&#x7684;&#x65F6;&#x5019;&#x4F7F;&#x7528;&#xFF0C;</p>
+<ul>
+<li>trim  &#x81EA;&#x52A8;&#x53BB;&#x6389;&#x7A7A;&#x683C; &#x524D;&#x540E;</li>
+<li>UpperCase</li>
+<li>lowerCase</li>
+</ul>
+<h3 id="&#x81EA;&#x5B9A;&#x4E49;&#x6A21;&#x5F0F;&#x4FEE;&#x9970;&#x7B26;">&#x81EA;&#x5B9A;&#x4E49;&#x6A21;&#x5F0F;&#x4FEE;&#x9970;&#x7B26;</h3>
+<p>&#x8FD8;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>Getters</code> &#x548C;<code>Setters</code>  &#x6765;&#x8FDB;&#x884C;&#x5904;&#x7406;</p>
+<ul>
+<li>setters &#x5C06;&#x5728;&#x6570;&#x636E;&#x5B58;&#x50A8;&#x7684;&#x65F6;&#x5019;&#x5BF9;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x52A0;&#x5DE5; &#xFF08;&#x5F3A;&#x70C8;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;&#xFF09;</li>
+<li>getters &#x5C06;&#x5728;&#x6570;&#x636E;&#x83B7;&#x53D6;&#x7684;&#x65F6;&#x5019;&#x5BF9;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x52A0;&#x5DE5; &#xFF08;&#x4E0D;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;&#xFF09;</li>
+</ul>
+<p>&#x3000;&#x3000;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> UserSchema = <span class="hljs-keyword">new</span> Schema({
+    username:{
+        type:<span class="hljs-built_in">String</span>,
+        required:<span class="hljs-literal">true</span>,
+        set(params){ <span class="hljs-comment">//&#x8FDB;&#x884C;&#x683C;&#x5F0F;&#x5904;&#x7406;</span>
+            <span class="hljs-comment">// &#x6DFB;&#x52A0;&#x6570;&#x636E;&#x7684;&#x65F6;&#x5019;&#x5BF9;username&#x8FD9;&#x4E2A;&#x5B57;&#x6BB5;&#x8FDB;&#x884C;&#x5904;&#x7406;</span>
+            <span class="hljs-comment">//set &#x51FD;&#x6570;&#x8981;&#x6C42; &#x5FC5;&#x987B;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x503C; </span>
+            <span class="hljs-comment">//&#x8FD4;&#x56DE;&#x7684; &#x503C;&#x5219;&#x662F;&#x771F;&#x6B63;&#x50A8;&#x5B58;&#x5728;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x7684;&#x503C;</span>
+            <span class="hljs-comment">//set  &#x51FD;&#x6570;&#x4E0D;&#x5141;&#x8BB8;&#x5F02;&#x6B65;</span>
+        },
+        get(){<span class="hljs-comment">//&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x662F;&#x5728;&#x83B7;&#x53D6;&#x5B9E;&#x4F8B;&#x6570;&#x636E;&#x7684;&#x65F6;&#x5019;&#x5BF9;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x683C;&#x5F0F;&#x5316;</span>
+            <span class="hljs-comment">//const user =new UserModel&#xFF08;{}&#xFF09;</span>
+            <span class="hljs-comment">//user.find() </span>
+            <span class="hljs-comment">//&#x53EA;&#x6709;&#x5728;user  &#x5B9E;&#x4F8B;&#x4E0A;&#x624D;&#x80FD;&#x89E6;&#x53D1;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;   &#x6240;&#x4EE5;&#x51E0;&#x4E4E;&#x4E0D;&#x7528;</span>
+
+        }
+    }
+})
+</code></pre>
+<blockquote>
+<p>getter &#x548C;setter &#x51FD;&#x6570;&#x5728;nodejs &#x4E2D;&#x672C;&#x8D28;&#x4E0A;&#x4E0D;&#x5141;&#x8BB8;&#x5F02;&#x6B65; </p>
+</blockquote>
+<h3 id="&#x8BBE;&#x7F6E;&#x7D22;&#x5F15;">&#x8BBE;&#x7F6E;&#x7D22;&#x5F15;</h3>
+<p>Schema &#x521D;&#x59CB;&#x5316;&#x53EF;&#x4EE5;&#x7ED9;&#x8868;&#x5B57;&#x6BB5;&#x589E;&#x52A0;&#x7D22;&#x5F15;</p>
+<pre><code class="lang-js"><span class="hljs-comment">// &#x666E;&#x901A;&#x7D22;&#x5F15;</span>
+<span class="hljs-keyword">const</span> UserSchema = <span class="hljs-keyword">new</span> Schema({
+    username:{
+        type:<span class="hljs-built_in">String</span>,
+        required:<span class="hljs-literal">true</span>,
+        index&#xFF1A;<span class="hljs-literal">true</span>,<span class="hljs-comment">//&#x8BBE;&#x7F6E;&#x6210;&#x666E;&#x901A;&#x7D22;&#x5F15;</span>
+        unique:<span class="hljs-literal">true</span> <span class="hljs-comment">//&#x552F;&#x4E00;&#x7D22;&#x5F15;</span>
+    }
+})
+</code></pre>
+<blockquote>
+<ol>
+<li>&#x65E8;&#x5728;&#x9700;&#x8981;&#x7684;&#x65F6;&#x5019;&#x5BF9;&#x5B57;&#x6BB5;&#x8BBE;&#x7F6E;&#x7D22;&#x5F15;</li>
+<li>&#x6240;&#x4EE5;&#x4F1A;&#x5BFC;&#x81F4;&#x8868;&#x7A7A;&#x95F4;&#x53D8;&#x5927;</li>
+<li>&#x4F1A;&#x5BFC;&#x81F4;&#x589E;&#x52A0;&#x53D8;&#x6162;</li>
+</ol>
+</blockquote>
+<h2 id="model">Model</h2>
+<p><code>Model</code>&#x6A21;&#x578B;&#xFF0C;&#x662F;&#x7ECF;&#x8FC7;<code>Schema</code>&#x6784;&#x9020;&#x6765;&#x7684;&#xFF0C;&#x9664;&#x4E86;<code>Schema</code>&#x5B9A;&#x4E49;&#x7684;&#x6570;&#x636E;&#x5E93;&#x9AA8;&#x67B6;&#x4EE5;&#x5916;&#xFF0C;&#x8FD8;&#x5177;&#x6709;&#x6570;&#x636E;&#x5E93;&#x884C;&#x4E3A;&#x6A21;&#x578B;&#xFF0C;&#x4ED6;&#x76F8;&#x5F53;&#x4E8E;&#x7BA1;&#x7406;&#x6570;&#x636E;&#x5E93;&#x5C5E;&#x6027;&#x3001;&#x884C;&#x4E3A;&#x7684;&#x7C7B;&#xFF0C;&#x901A;&#x8FC7;Model&#x53EF;&#x4EE5;&#x5B9E;&#x4F8B;&#x5316;&#x51FA;&#x6587;&#x6863;&#x5BF9;&#x8C61;document&#xFF0C;&#x6587;&#x6863;document&#x7684;&#x521B;&#x5EFA;&#x548C;&#x68C0;&#x7D22;&#x90FD;&#x9700;&#x8981;&#x901A;&#x8FC7;&#x6A21;&#x578B;Model&#x6765;&#x5904;&#x7406;</p>
+<h3 id="model">model()</h3>
+<pre><code>mongoose.model()
+</code></pre><p>&#x3000;&#x3000;&#x4F7F;&#x7528;model()&#x65B9;&#x6CD5;&#xFF0C;&#x5C06;Schema&#x7F16;&#x8BD1;&#x4E3A;Model.model()&#x65B9;&#x6CD5;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x662F;&#x6A21;&#x578B;&#x540D;&#x79F0;</p>
+<blockquote>
+<p>&#x3000;[&#x6CE8;&#x610F;]&#x4E00;&#x5B9A;&#x8981;&#x5C06;model()&#x65B9;&#x6CD5;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x548C;&#x5176;&#x8FD4;&#x56DE;&#x503C;&#x8BBE;&#x7F6E;&#x4E3A;&#x76F8;&#x540C;&#x7684;&#x503C;&#xFF0C;&#x5426;&#x5219;&#x4F1A;&#x51FA;&#x73B0;&#x4E0D;&#x53EF;&#x9884;&#x77E5;&#x7684;&#x7ED3;&#x679C;</p>
+</blockquote>
+<p>&#x3000;</p>
+<p>&#x3000;&#x3000;Mongoose&#x4F1A;&#x5C06;&#x96C6;&#x5408;&#x540D;&#x79F0;&#x8BBE;&#x7F6E;&#x4E3A;&#x6A21;&#x578B;&#x540D;&#x79F0;&#x7684;&#x5C0F;&#x5199;&#x7248;&#x3002;&#x5982;&#x679C;&#x540D;&#x79F0;&#x7684;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x662F;&#x5B57;&#x6BCD;&#xFF0C;&#x5219;&#x4F1A;&#x53D8;&#x6210;&#x590D;&#x6570;&#xFF1B;&#x5982;&#x679C;&#x540D;&#x79F0;&#x7684;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x662F;&#x6570;&#x5B57;&#xFF0C;&#x5219;&#x4E0D;&#x53D8;&#xFF1B;&#x5982;&#x679C;&#x6A21;&#x578B;&#x540D;&#x79F0;&#x4E3A;&quot;MyModel&quot;&#xFF0C;&#x5219;&#x96C6;&#x5408;&#x540D;&#x79F0;&#x4E3A;&quot;mymodels&quot;&#xFF1B;&#x5982;&#x679C;&#x6A21;&#x578B;&#x540D;&#x79F0;&#x4E3A;&quot;Model1&quot;&#xFF0C;&#x5219;&#x96C6;&#x5408;&#x540D;&#x79F0;&#x4E3A;&quot;model1&quot;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> schema = <span class="hljs-keyword">new</span> mongoose.Schema({ num:<span class="hljs-built_in">Number</span>, name: <span class="hljs-built_in">String</span>, size: <span class="hljs-built_in">String</span>});
+<span class="hljs-keyword">var</span> MyModel = mongoose.model(<span class="hljs-string">&apos;MyModel&apos;</span>, schema);
+<span class="hljs-keyword">var</span> tank = {name:<span class="hljs-string">&apos;zhangsan&apos;</span>,num:<span class="hljs-number">1</span>,size:<span class="hljs-string">&apos;large&apos;</span>};
+    MyModel.create(tank);
+</code></pre>
+<p>&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>Model</code>&#x6765;&#x521B;&#x5EFA;<code>Entity</code>&#xFF0C;<code>Entity</code>&#x5B9E;&#x4F53;&#x662F;&#x4E00;&#x4E2A;&#x7279;&#x6709;<code>Model</code>&#x5177;&#x4F53;&#x5BF9;&#x8C61;&#xFF0C;&#x4F46;&#x662F;&#x4ED6;&#x5E76;&#x4E0D;&#x5177;&#x5907;<code>Model</code>&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x53EA;&#x80FD;&#x7528;&#x81EA;&#x5DF1;&#x7684;&#x65B9;&#x6CD5;&#x3002;</p>
+<pre><code class="lang-javascript">  <span class="hljs-comment">//&#x901A;&#x8FC7;Model&#x521B;&#x5EFA;Entity</span>
+  <span class="hljs-keyword">var</span> tankEntity = <span class="hljs-keyword">new</span> TankModel(<span class="hljs-string">&apos;someother&apos;</span>,<span class="hljs-string">&apos;size:big&apos;</span>);
+  tankEntity.save();
+</code></pre>
+<h2 id="&#x5B9E;&#x4F8B;&#x5316;&#x6587;&#x6863;documententiry">&#x5B9E;&#x4F8B;&#x5316;&#x6587;&#x6863;document(entiry)</h2>
+<p>&#x3000;&#x3000;&#x901A;&#x8FC7;&#x5BF9;&#x539F;&#x578B;Model1&#x4F7F;&#x7528;new&#x65B9;&#x6CD5;&#xFF0C;&#x5B9E;&#x4F8B;&#x5316;&#x51FA;&#x6587;&#x6863;document&#x5BF9;&#x8C61;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> mongoose = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;mongoose&apos;</span>);
+mongoose.connect(<span class="hljs-string">&quot;mongodb://u1:123456@localhost/db1&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>) </span>{
+    <span class="hljs-keyword">if</span>(err){
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;&#x8FDE;&#x63A5;&#x5931;&#x8D25;&apos;</span>);
+    }<span class="hljs-keyword">else</span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;&#x8FDE;&#x63A5;&#x6210;&#x529F;&apos;</span>);
+        <span class="hljs-keyword">var</span> schema = <span class="hljs-keyword">new</span> mongoose.Schema({ num:<span class="hljs-built_in">Number</span>, name: <span class="hljs-built_in">String</span>, size: <span class="hljs-built_in">String</span>});
+        <span class="hljs-keyword">var</span> MyModel = mongoose.model(<span class="hljs-string">&apos;MyModel&apos;</span>, schema);
+        <span class="hljs-keyword">var</span> doc1 = <span class="hljs-keyword">new</span> MyModel({ size: <span class="hljs-string">&apos;small&apos;</span> });
+        <span class="hljs-built_in">console</span>.log(doc1.size);<span class="hljs-comment">//&apos;small&apos;</span>
+    }
+});
+</code></pre>
+<h3 id="&#x6587;&#x6863;&#x4FDD;&#x5B58;">&#x6587;&#x6863;&#x4FDD;&#x5B58;</h3>
+<p>&#x3000;&#x3000;&#x901A;&#x8FC7;new Model1()&#x521B;&#x5EFA;&#x7684;&#x6587;&#x6863;doc1&#xFF0C;&#x5FC5;&#x987B;&#x901A;&#x8FC7;save()&#x65B9;&#x6CD5;&#xFF0C;&#x624D;&#x80FD;&#x5C06;&#x521B;&#x5EFA;&#x7684;&#x6587;&#x6863;&#x4FDD;&#x5B58;&#x5230;&#x6570;&#x636E;&#x5E93;&#x7684;&#x96C6;&#x5408;&#x4E2D;&#xFF0C;&#x96C6;&#x5408;&#x540D;&#x79F0;&#x4E3A;&#x6A21;&#x578B;&#x540D;&#x79F0;&#x7684;&#x5C0F;&#x5199;&#x590D;&#x6570;&#x7248;</p>
+<p>&#x3000;&#x3000;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x662F;&#x53EF;&#x9009;&#x9879;&#xFF0C;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x4E3A;err&#xFF0C;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x4E3A;&#x4FDD;&#x5B58;&#x7684;&#x6587;&#x6863;&#x5BF9;&#x8C61;</p>
+<pre><code>save(function (err, doc) {})
+</code></pre><pre><code class="lang-js"><span class="hljs-keyword">var</span> mongoose = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;mongoose&apos;</span>);
+mongoose.connect(<span class="hljs-string">&quot;mongodb://u1:123456@localhost/db1&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>) </span>{
+    <span class="hljs-keyword">if</span>(!err){
+        <span class="hljs-keyword">var</span> schema = <span class="hljs-keyword">new</span> mongoose.Schema({ num:<span class="hljs-built_in">Number</span>, name: <span class="hljs-built_in">String</span>, size: <span class="hljs-built_in">String</span> });
+        <span class="hljs-keyword">var</span> MyModel = mongoose.model(<span class="hljs-string">&apos;MyModel&apos;</span>, schema);
+        <span class="hljs-keyword">var</span> doc1 = <span class="hljs-keyword">new</span> MyModel({ size: <span class="hljs-string">&apos;small&apos;</span> });
+        doc1.save(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err,doc</span>) </span>{
+        <span class="hljs-comment">//{ __v: 0, size: &apos;small&apos;, _id: 5970daba61162662b45a24a1 }</span>
+          <span class="hljs-built_in">console</span>.log(doc);
+        })
+    }
+});
+</code></pre>
+<p>&#x3000;&#x3000;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="3.2 Mongoose的初步理解和简化流程.html" class="navigation navigation-prev " aria-label="Previous page: 3.2 Mongoose的初步理解和简化流程">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="3.4 Mongoose Schema的类型校验.html" class="navigation navigation-next " aria-label="Next page: 3.4 Mongoose Schema的类型校验">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"3.3 Mongoose的Schema、modle、document","level":"1.4.3","depth":2,"next":{"title":"3.4 Mongoose Schema的类型校验","level":"1.4.4","depth":2,"path":"3 Mongoose/3.4 Mongoose Schema的类型校验.md","ref":"3 Mongoose/3.4 Mongoose Schema的类型校验.md","articles":[]},"previous":{"title":"3.2 Mongoose的初步理解和简化流程","level":"1.4.2","depth":2,"path":"3 Mongoose/3.2 Mongoose的初步理解和简化流程.md","ref":"3 Mongoose/3.2 Mongoose的初步理解和简化流程.md","articles":[]},"dir":"ltr"},"config":{"plugins":["multipart","chapter-fold","page-toc-button","splitter","-lunr","-search","search-pro","theme-comscore"],"ignores":["Node Modules"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"splitter":{},"search-pro":{},"multipart":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"yu-Lei ","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"bookname":"Notes","variables":{},"title":"Notes","catalog":["1 Koa","2 MongoDB","3 Mongoose"],"links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"yu-lei's Blog":"https://rainyulei.github.io"}},"gitbook":"*","unchanged":[],"description":"some notes","outputfile":"SUMMARY.md","theme-default":{"showLevel":true},"extension":null},"file":{"path":"3 Mongoose/3.3 Mongoose的Schema、modle、document.md","mtime":"2019-08-26T09:57:06.924Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-26T10:54:02.996Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-page-toc-button/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+

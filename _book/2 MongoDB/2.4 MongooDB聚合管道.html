@@ -1,0 +1,692 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>2.4 MongooDB聚合管道 · Notes</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="yu-Lei ">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-multipart/multipart.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-page-toc-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="2.5 MongooDB需要注意的点以及数组内操作.html" />
+    
+    
+    <link rel="prev" href="2.3 MongooDB索引和权限配置.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://rainyulei.github.io" target="_blank" class="custom-link">yu-lei's Blog</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../1 Koa/">
+            
+                <a href="../1 Koa/">
+            
+                    
+                    1 Koa
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../1 Koa/1.1 DOC-Koa 以及中间件学习笔记.html">
+            
+                <a href="../1 Koa/1.1 DOC-Koa 以及中间件学习笔记.html">
+            
+                    
+                    1.1 DOC-Koa 以及中间件学习笔记
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../1 Koa/1.2 KoaRouter.html">
+            
+                <a href="../1 Koa/1.2 KoaRouter.html">
+            
+                    
+                    1.2 KoaRouter
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../1 Koa/1.3 Koa 中间件.html">
+            
+                <a href="../1 Koa/1.3 Koa 中间件.html">
+            
+                    
+                    1.3 Koa 中间件
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    2 Mongo DB
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="2.1 MongoDB创建数据库和表.html">
+            
+                <a href="2.1 MongoDB创建数据库和表.html">
+            
+                    
+                    2.1 MongoDB创建数据库和表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="2.2 MongooDB基本的CRUD操作 - 副本.html">
+            
+                <a href="2.2 MongooDB基本的CRUD操作 - 副本.html">
+            
+                    
+                    2.2 MongooDB基本的CRUD操作 - 副本
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="2.3 MongooDB索引和权限配置.html">
+            
+                <a href="2.3 MongooDB索引和权限配置.html">
+            
+                    
+                    2.3 MongooDB索引和权限配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.4" data-path="2.4 MongooDB聚合管道.html">
+            
+                <a href="2.4 MongooDB聚合管道.html">
+            
+                    
+                    2.4 MongooDB聚合管道
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="2.5 MongooDB需要注意的点以及数组内操作.html">
+            
+                <a href="2.5 MongooDB需要注意的点以及数组内操作.html">
+            
+                    
+                    2.5 MongooDB需要注意的点以及数组内操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="2.6 MongoDB的服务器配置.html">
+            
+                <a href="2.6 MongoDB的服务器配置.html">
+            
+                    
+                    2.6 MongoDB的服务器配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../3 Mongoose/">
+            
+                <a href="../3 Mongoose/">
+            
+                    
+                    3 Mongoose
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../3 Mongoose/3.1 Mongoose安装、创建、连接.html">
+            
+                <a href="../3 Mongoose/3.1 Mongoose安装、创建、连接.html">
+            
+                    
+                    3.1 Mongoose安装、创建、连接
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../3 Mongoose/3.2 Mongoose的初步理解和简化流程.html">
+            
+                <a href="../3 Mongoose/3.2 Mongoose的初步理解和简化流程.html">
+            
+                    
+                    3.2 Mongoose的初步理解和简化流程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../3 Mongoose/3.3 Mongoose的Schema、modle、document.html">
+            
+                <a href="../3 Mongoose/3.3 Mongoose的Schema、modle、document.html">
+            
+                    
+                    3.3 Mongoose的Schema、modle、document
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../3 Mongoose/3.4 Mongoose Schema的类型校验.html">
+            
+                <a href="../3 Mongoose/3.4 Mongoose Schema的类型校验.html">
+            
+                    
+                    3.4 Mongoose Schema的类型校验
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../3 Mongoose/3.5 Schema的配置项.html">
+            
+                <a href="../3 Mongoose/3.5 Schema的配置项.html">
+            
+                    
+                    3.5 Schema的配置项
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../3 Mongoose/3.6  Mongoose 基于DOC（实体）的CRUD.html">
+            
+                <a href="../3 Mongoose/3.6  Mongoose 基于DOC（实体）的CRUD.html">
+            
+                    
+                    3.6  Mongoose 基于DOC（实体）的CRUD
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../3 Mongoose/3.7 Mongoose基于Model的查询操作.html">
+            
+                <a href="../3 Mongoose/3.7 Mongoose基于Model的查询操作.html">
+            
+                    
+                    3.7 Mongoose基于Model的查询操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../3 Mongoose/3.8 Mongoose的查询后处理.html">
+            
+                <a href="../3 Mongoose/3.8 Mongoose的查询后处理.html">
+            
+                    
+                    3.8 Mongoose的查询后处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../3 Mongoose/3.9 Mongoose基于Model的新增和删除操作.html">
+            
+                <a href="../3 Mongoose/3.9 Mongoose基于Model的新增和删除操作.html">
+            
+                    
+                    3.9 Mongoose基于Model的新增和删除操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="../3 Mongoose/3.10 Mongoose 基于Model的更新操作.html">
+            
+                <a href="../3 Mongoose/3.10 Mongoose 基于Model的更新操作.html">
+            
+                    
+                    3.10 Mongoose 基于Model的更新操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.11" data-path="../3 Mongoose/3.11 Mongoose 的自定义方法.html">
+            
+                <a href="../3 Mongoose/3.11 Mongoose 的自定义方法.html">
+            
+                    
+                    3.11 Mongoose 的自定义方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.12" data-path="../3 Mongoose/3.12 Mongoose的中间件.html">
+            
+                <a href="../3 Mongoose/3.12 Mongoose的中间件.html">
+            
+                    
+                    3.12 Mongoose的中间件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.13" data-path="../3 Mongoose/3.13 Mongoose的复杂操作.html">
+            
+                <a href="../3 Mongoose/3.13 Mongoose的复杂操作.html">
+            
+                    
+                    3.13 Mongoose的复杂操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >2.4 MongooDB聚合管道</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="&#x805A;&#x5408;&#x7BA1;&#x9053;">&#x805A;&#x5408;&#x7BA1;&#x9053;</h2>
+<p>&#x53EF;&#x4EE5;&#x5BF9;&#x96C6;&#x5408;&#x4E2D;&#x7684;&#x6587;&#x6863;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x53D8;&#x6362;&#x548C;&#x7EC4;&#x5408;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// &#x901A;&#x8FC7;</span>
+db.orders.aggregate([
+    {$match:{username:<span class="hljs-string">&quot;zhangsan&quot;</span>}},
+    {$group:{age:<span class="hljs-number">30</span>&#xFF0C;total&#xFF1A;{$sum:<span class="hljs-string">&apos;$amount&apos;</span>}}}
+])
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x662F;&#x5148;&#x67E5;&#x5230; username &#x662F;&#x5F20;&#x4E09;&#x7684;&#x4EBA;&#xFF0C;&#x7136;&#x540E;&#x5BF9;&#x6240;&#x6709;&#x7684;&#x5F20;&#x4E09;&#x8FDB;&#x884C;&#x5206;&#x7EC4; 30&#x5C81;&#x7684;&#x4E00;&#x7EC4;  &#x4E0D;&#x662F;&#x4E09;&#x5341;&#x7684;&#x4E00;&#x7EC4;&#xFF0C;&#x8FD9;&#x4E2A;&#x64CD;&#x4F5C;&#x4F1A;&#x8FD4;&#x56DE;&#x8FDE;&#x4E2A;&#x7EC4;&#x5408;</p>
+<p>&#x5E38;&#x89C1;&#x7684;&#x64CD;&#x4F5C;&#x7B26;</p>
+<pre><code class="lang-js">$project &#x6DFB;&#x52A0; &#x5220;&#x9664; &#x547D;&#x540D;  &#x9700;&#x8981;&#x663E;&#x793A;&#x7684;&#x5217;
+$lookup &#x5F15;&#x5165;&#x5176;&#x4ED6;&#x96C6;&#x5408;&#x6570;&#x636E;  &#x5173;&#x8054;&#x67E5;&#x8BE2;
+$match &#x6761;&#x4EF6;&#x5339;&#x914D; &#x6EE1;&#x8DB3;&#x6761;&#x4EF6;&#x7B5B;&#x9009;&#x8FDB;&#x5165;&#x4E0B;&#x4E00;&#x7EC4;&#x7BA1;&#x9053; &#x76F8;&#x5F53;&#x4E8E;mysql&#x7684;have
+$group &#x6761;&#x4EF6;&#x7EC4;&#x5408;&#x7ED3;&#x679C;  &#x7EDF;&#x8BA1; &#x76F8;&#x5F53;&#x4E8E; groupby
+$sort  &#x6761;&#x4EF6;&#x6392;&#x5E8F;
+$skip &#x8DF3;&#x8FC7;
+$limit &#x9650;&#x5236;&#x6570;&#x91CF;
+$unwide &#x62C6;&#x5206;&#x6570;&#x7EC4;
+</code></pre>
+<h3 id="project-&#x7BA1;&#x9053;&#x64CD;&#x4F5C;&#x7B26;">$project &#x7BA1;&#x9053;&#x64CD;&#x4F5C;&#x7B26;</h3>
+<pre><code class="lang-js">db.users.aggregate([{$project:{username:<span class="hljs-number">1</span>}}])
+<span class="hljs-comment">// &#x8868;&#x793A; &#x67E5;&#x627E;users &#x8868; &#x53EA;&#x663E;&#x793A; username  &#x4E8E;find &#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;select &#x4F7F;&#x7528;&#x65B9;&#x5F0F;&#x7C7B;&#x4F3C;</span>
+</code></pre>
+<h3 id="match--&#x5339;&#x914D;">$match  &#x5339;&#x914D;</h3>
+<pre><code class="lang-javascript">db.users.aggregate([{$project:{username:<span class="hljs-number">1</span>}},{$match:{username:<span class="hljs-string">&apos;zhangsan&apos;</span>}}])
+<span class="hljs-comment">// &#x76F8;&#x5F53;&#x4E8E;</span>
+db.users.find({username:<span class="hljs-string">&apos;zhangsan&apos;</span>},{username:<span class="hljs-number">1</span>})
+</code></pre>
+<h3 id="group-&#x5206;&#x7EC4;">$group &#x5206;&#x7EC4;</h3>
+<p>group&#x5206;&#x7EC4;&#x540E;&#x53EF;&#x4EE5;&#x8FDB;&#x884C;&#x7EDF;&#x8BA1;</p>
+<pre><code class="lang-javascript">db.users.aggregate([
+    {$project:{username:<span class="hljs-number">1</span>}},
+    {$match:{username:<span class="hljs-string">&apos;zhangsan&apos;</span>}},
+    {$group:{_id:<span class="hljs-string">&apos;$username&apos;</span>,totle:{$sum:<span class="hljs-string">&apos;$age&apos;</span>}}},
+    <span class="hljs-comment">//&#x6CE8;&#x610F;     &#x6B64;&#x5904;&#x6709;&#x4E00;&#x4E2A;&#x518D;&#x627F;&#x53C2;&#x6570;&#x524D;&#x6709;&#x4E00;&#x4E2A;$</span>
+
+
+])
+</code></pre>
+<h3 id="sort-&#x6392;&#x5E8F;">$sort &#x6392;&#x5E8F;</h3>
+<pre><code class="lang-js">db.users.aggregate([
+    {$project:{username:<span class="hljs-number">1</span>,age:<span class="hljs-number">1</span>}},
+    {$match:{username:<span class="hljs-string">&apos;zhangsan&apos;</span>}},
+    {$sort:{<span class="hljs-string">&quot;age&quot;</span>:<span class="hljs-number">1</span>}}
+    <span class="hljs-comment">//1 &#x8868;&#x793A;&#x6B63;&#x5E8F;  -1 &#x8868;&#x793A;&#x8D1F;&#x5E8F;</span>
+])
+</code></pre>
+<h3 id="limit-&#x9650;&#x5236;&#x6761;&#x6570;">$limit &#x9650;&#x5236;&#x6761;&#x6570;</h3>
+<pre><code class="lang-js">db.users.aggregate([
+    {$project:{username:<span class="hljs-number">1</span>,age:<span class="hljs-number">1</span>}},
+    {$match:{username:<span class="hljs-string">&apos;zhangsan&apos;</span>}},
+    {$limit:<span class="hljs-number">2</span>}
+   <span class="hljs-comment">// &#x53EA;&#x8FD4;&#x56DE;2&#x6761;</span>
+])
+</code></pre>
+<h3 id="skip-&#x8DF3;&#x8FC7;&#x51E0;&#x6761;">$skip &#x8DF3;&#x8FC7;&#x51E0;&#x6761;</h3>
+<pre><code class="lang-js">db.users.aggregate([
+    {$project:{username:<span class="hljs-number">1</span>,age:<span class="hljs-number">1</span>}},
+    {$match:{username:<span class="hljs-string">&apos;zhangsan&apos;</span>}},
+    {$skip:<span class="hljs-number">2</span>}
+    <span class="hljs-comment">//&#x8DF3;&#x8FC7;&#x524D;&#x4E24;&#x6761;</span>
+])
+</code></pre>
+<h3 id="lookup-&#x7528;&#x4E8E;&#x8868;&#x7684;&#x5173;&#x8054;&#x64CD;&#x4F5C;">$lookup &#x7528;&#x4E8E;&#x8868;&#x7684;&#x5173;&#x8054;&#x64CD;&#x4F5C;</h3>
+<pre><code class="lang-js">db.users.aggregate([
+    {
+        $lookup:{
+            <span class="hljs-keyword">from</span>:<span class="hljs-string">&quot;context&quot;</span>, <span class="hljs-comment">// &#x8868;&#x793A;&#x9700;&#x8981;&#x4E8E;&#x54EA;&#x4E2A;&#x8868;&#x8FDB;&#x884C;&#x5173;&#x8054;</span>
+            localField:<span class="hljs-string">&quot;userID&quot;</span>&#xFF0C;<span class="hljs-comment">//&#x8868;&#x793A;&#x4E3B;&#x67E5;&#x8868;users &#x7684;&#x5173;&#x8054;&#x5B57;&#x6BB5;  userID</span>
+            foreignField:<span class="hljs-string">&quot;userID&quot;</span>,<span class="hljs-comment">//&#x8868;&#x793A;&#x5B50;&#x8868;&#x7684;context&#x7684;&#x5173;&#x8054;&#x5B57;&#x6BB5; userID  &#x8FD9;&#x8FDE;&#x4E2A;&#x5B57;&#x6BB5;&#x662F;&#x76F8;&#x5173;&#x8054;&#x4F46;&#x662F;&#x540D;&#x79F0; &#x4E0D;&#x4E00;&#x5B9A;&#x4E00;&#x6837;</span>
+            <span class="hljs-keyword">as</span>:<span class="hljs-string">&quot;items&quot;</span>}},
+    <span class="hljs-comment">//&#x9700;&#x8981;&#x628A;&#x6570;&#x636E;&#x653E;&#x5230;&#x4EC0;&#x4E48;&#x5B57;&#x6BB5;&#x5185;  &#x8FD9;&#x6837;&#x5C31;&#x53EF;&#x4EE5;&#x628A;&#x67E5;&#x8BE2;&#x5230;&#x7684;&#x6570;&#x636E;&#x653E;&#x5230;items&#x5185;  </span>
+    <span class="hljs-comment">// items  &#x662F;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;</span>
+    {
+        $match:{ <span class="hljs-comment">//$lookup  &#x540E;&#x4F7F;&#x7528;match  &#x5BF9;&#x6570;&#x636E;&#x7EE7;&#x7EED;&#x8FDB;&#x884C;&#x7B5B;&#x9009;</span>
+            age:{
+                $gt:<span class="hljs-number">20</span>
+            }
+        }
+    }
+
+])
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="2.3 MongooDB索引和权限配置.html" class="navigation navigation-prev " aria-label="Previous page: 2.3 MongooDB索引和权限配置">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="2.5 MongooDB需要注意的点以及数组内操作.html" class="navigation navigation-next " aria-label="Next page: 2.5 MongooDB需要注意的点以及数组内操作">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"2.4 MongooDB聚合管道","level":"1.3.4","depth":2,"next":{"title":"2.5 MongooDB需要注意的点以及数组内操作","level":"1.3.5","depth":2,"path":"2 MongoDB/2.5 MongooDB需要注意的点以及数组内操作.md","ref":"2 MongoDB/2.5 MongooDB需要注意的点以及数组内操作.md","articles":[]},"previous":{"title":"2.3 MongooDB索引和权限配置","level":"1.3.3","depth":2,"path":"2 MongoDB/2.3 MongooDB索引和权限配置.md","ref":"2 MongoDB/2.3 MongooDB索引和权限配置.md","articles":[]},"dir":"ltr"},"config":{"plugins":["multipart","chapter-fold","page-toc-button","splitter","-lunr","-search","search-pro","theme-comscore"],"ignores":["Node Modules"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"splitter":{},"search-pro":{},"multipart":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"yu-Lei ","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"bookname":"Notes","variables":{},"title":"Notes","catalog":["1 Koa","2 MongoDB","3 Mongoose"],"links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"yu-lei's Blog":"https://rainyulei.github.io"}},"gitbook":"*","unchanged":[],"description":"some notes","outputfile":"SUMMARY.md","theme-default":{"showLevel":true},"extension":null},"file":{"path":"2 MongoDB/2.4 MongooDB聚合管道.md","mtime":"2019-08-26T08:17:09.978Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-26T10:54:02.996Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-page-toc-button/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+

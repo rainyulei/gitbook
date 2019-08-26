@@ -1,0 +1,698 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>3.6  Mongoose 基于DOC（实体）的CRUD · Notes</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="yu-Lei ">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-multipart/multipart.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-page-toc-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="3.7 Mongoose基于Model的查询操作.html" />
+    
+    
+    <link rel="prev" href="3.5 Schema的配置项.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://rainyulei.github.io" target="_blank" class="custom-link">yu-lei's Blog</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../1 Koa/">
+            
+                <a href="../1 Koa/">
+            
+                    
+                    1 Koa
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../1 Koa/1.1 DOC-Koa 以及中间件学习笔记.html">
+            
+                <a href="../1 Koa/1.1 DOC-Koa 以及中间件学习笔记.html">
+            
+                    
+                    1.1 DOC-Koa 以及中间件学习笔记
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../1 Koa/1.2 KoaRouter.html">
+            
+                <a href="../1 Koa/1.2 KoaRouter.html">
+            
+                    
+                    1.2 KoaRouter
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../1 Koa/1.3 Koa 中间件.html">
+            
+                <a href="../1 Koa/1.3 Koa 中间件.html">
+            
+                    
+                    1.3 Koa 中间件
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    2 Mongo DB
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../2 MongoDB/2.1 MongoDB创建数据库和表.html">
+            
+                <a href="../2 MongoDB/2.1 MongoDB创建数据库和表.html">
+            
+                    
+                    2.1 MongoDB创建数据库和表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../2 MongoDB/2.2 MongooDB基本的CRUD操作 - 副本.html">
+            
+                <a href="../2 MongoDB/2.2 MongooDB基本的CRUD操作 - 副本.html">
+            
+                    
+                    2.2 MongooDB基本的CRUD操作 - 副本
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../2 MongoDB/2.3 MongooDB索引和权限配置.html">
+            
+                <a href="../2 MongoDB/2.3 MongooDB索引和权限配置.html">
+            
+                    
+                    2.3 MongooDB索引和权限配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../2 MongoDB/2.4 MongooDB聚合管道.html">
+            
+                <a href="../2 MongoDB/2.4 MongooDB聚合管道.html">
+            
+                    
+                    2.4 MongooDB聚合管道
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../2 MongoDB/2.5 MongooDB需要注意的点以及数组内操作.html">
+            
+                <a href="../2 MongoDB/2.5 MongooDB需要注意的点以及数组内操作.html">
+            
+                    
+                    2.5 MongooDB需要注意的点以及数组内操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../2 MongoDB/2.6 MongoDB的服务器配置.html">
+            
+                <a href="../2 MongoDB/2.6 MongoDB的服务器配置.html">
+            
+                    
+                    2.6 MongoDB的服务器配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    3 Mongoose
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="3.1 Mongoose安装、创建、连接.html">
+            
+                <a href="3.1 Mongoose安装、创建、连接.html">
+            
+                    
+                    3.1 Mongoose安装、创建、连接
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="3.2 Mongoose的初步理解和简化流程.html">
+            
+                <a href="3.2 Mongoose的初步理解和简化流程.html">
+            
+                    
+                    3.2 Mongoose的初步理解和简化流程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="3.3 Mongoose的Schema、modle、document.html">
+            
+                <a href="3.3 Mongoose的Schema、modle、document.html">
+            
+                    
+                    3.3 Mongoose的Schema、modle、document
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="3.4 Mongoose Schema的类型校验.html">
+            
+                <a href="3.4 Mongoose Schema的类型校验.html">
+            
+                    
+                    3.4 Mongoose Schema的类型校验
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="3.5 Schema的配置项.html">
+            
+                <a href="3.5 Schema的配置项.html">
+            
+                    
+                    3.5 Schema的配置项
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.6" data-path="3.6  Mongoose 基于DOC（实体）的CRUD.html">
+            
+                <a href="3.6  Mongoose 基于DOC（实体）的CRUD.html">
+            
+                    
+                    3.6  Mongoose 基于DOC（实体）的CRUD
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="3.7 Mongoose基于Model的查询操作.html">
+            
+                <a href="3.7 Mongoose基于Model的查询操作.html">
+            
+                    
+                    3.7 Mongoose基于Model的查询操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="3.8 Mongoose的查询后处理.html">
+            
+                <a href="3.8 Mongoose的查询后处理.html">
+            
+                    
+                    3.8 Mongoose的查询后处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="3.9 Mongoose基于Model的新增和删除操作.html">
+            
+                <a href="3.9 Mongoose基于Model的新增和删除操作.html">
+            
+                    
+                    3.9 Mongoose基于Model的新增和删除操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="3.10 Mongoose 基于Model的更新操作.html">
+            
+                <a href="3.10 Mongoose 基于Model的更新操作.html">
+            
+                    
+                    3.10 Mongoose 基于Model的更新操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.11" data-path="3.11 Mongoose 的自定义方法.html">
+            
+                <a href="3.11 Mongoose 的自定义方法.html">
+            
+                    
+                    3.11 Mongoose 的自定义方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.12" data-path="3.12 Mongoose的中间件.html">
+            
+                <a href="3.12 Mongoose的中间件.html">
+            
+                    
+                    3.12 Mongoose的中间件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.13" data-path="3.13 Mongoose的复杂操作.html">
+            
+                <a href="3.13 Mongoose的复杂操作.html">
+            
+                    
+                    3.13 Mongoose的复杂操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >3.6  Mongoose 基于DOC（实体）的CRUD</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="mongoose-&#x57FA;&#x4E8E;doc&#xFF08;&#x5B9E;&#x4F53;&#xFF09;&#x7684;crud">Mongoose &#x57FA;&#x4E8E;DOC&#xFF08;&#x5B9E;&#x4F53;&#xFF09;&#x7684;CRUD</h1>
+<p>Mongoose &#x6709;&#x4E24;&#x79CD;CRUD&#x65B9;&#x5F0F;</p>
+<ol>
+<li>&#x57FA;&#x4E8E;&#x6587;&#x6863;&#x7684;&#x64CD;&#x4F5C; &#x9700;&#x8981;&#x5B9E;&#x4F8B;&#x64CD;&#x4F5C;</li>
+<li>&#x57FA;&#x4E8E;model&#x7684;&#x64CD;&#x4F5C; &#x53EA;&#x9700;&#x8981;&#x901A;&#x8FC7;medel&#x6765;&#x64CD;&#x4F5C;&#x5373;&#x53EF;</li>
+</ol>
+<h2 id="&#x57FA;&#x4E8E;entity&#x7684;&#x64CD;&#x4F5C;">&#x57FA;&#x4E8E;Entity&#x7684;&#x64CD;&#x4F5C;</h2>
+<p><code>Document</code>&#x7684;`CRUD&#x90FD;&#x5FC5;&#x987B;&#x7ECF;&#x8FC7;&#x4E25;&#x683C;&#x9A8C;&#x8BC1;&#x7684;&#xFF0C;&#x5373;Schema&#x7684;strict&#x4E25;&#x683C;&#x914D;&#x7F6E;</p>
+<h3 id="&#x66F4;&#x65B0;">&#x66F4;&#x65B0;</h3>
+<p>&#x6709;&#x8BB8;&#x591A;&#x65B9;&#x5F0F;&#x6765;&#x66F4;&#x65B0;&#x6587;&#x4EF6;&#xFF0C;&#x4EE5;&#x4E0B;&#x662F;&#x5E38;&#x7528;&#x7684;&#x4F20;&#x7EDF;&#x65B9;&#x5F0F;&#xFF1A;</p>
+<pre><code class="lang-javascript">    PersonModel.findById(id,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err,person</span>)</span>{
+      person.name = <span class="hljs-string">&apos;MDragon&apos;</span>;
+      person.save(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>)</span>{});
+    });
+</code></pre>
+<p>&#x8FD9;&#x91CC;&#xFF0C;&#x5229;&#x7528;<code>Model</code>&#x6A21;&#x578B;&#x67E5;&#x8BE2;&#x5230;&#x4E86;<code>person</code>&#x5BF9;&#x8C61;&#xFF0C;&#x8BE5;&#x5BF9;&#x8C61;&#x5C5E;&#x4E8E;<code>Entity</code>&#xFF0C;&#x53EF;&#x4EE5;&#x6709;<code>save&#x64CD;&#x4F5C;&#xFF0C;&#x5982;&#x679C;&#x4F7F;&#x7528;</code>Model`&#x64CD;&#x4F5C;&#xFF0C;&#x9700;&#x6CE8;&#x610F;&#xFF1A;</p>
+<pre><code class="lang-javascript">    PersonModel.findById(id,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err,person</span>)</span>{
+      person.name = <span class="hljs-string">&apos;MDragon&apos;</span>;
+      <span class="hljs-keyword">var</span> _id = person._id; <span class="hljs-comment">//&#x9700;&#x8981;&#x53D6;&#x51FA;&#x4E3B;&#x952E;_id</span>
+      <span class="hljs-keyword">delete</span> person._id;    <span class="hljs-comment">//&#x518D;&#x5C06;&#x5176;&#x5220;&#x9664;</span>
+      PersonModel.update({_id:_id},person,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>)</span>{});
+      <span class="hljs-comment">//&#x6B64;&#x65F6;&#x624D;&#x80FD;&#x7528;Model&#x64CD;&#x4F5C;&#xFF0C;&#x5426;&#x5219;&#x62A5;&#x9519;</span>
+    });
+</code></pre>
+<p><code>update</code>&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x662F;&#x67E5;&#x8BE2;&#x6761;&#x4EF6;&#xFF0C;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x662F;&#x66F4;&#x65B0;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x4F46;&#x4E0D;&#x80FD;&#x66F4;&#x65B0;&#x4E3B;&#x952E;&#xFF0C;&#x8FD9;&#x5C31;&#x662F;&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x5220;&#x9664;&#x4E3B;&#x952E;&#x7684;&#x539F;&#x56E0;&#x3002;</p>
+<p>&#x5F53;&#x7136;&#x8FD9;&#x6837;&#x7684;&#x66F4;&#x65B0;&#x5F88;&#x9EBB;&#x70E6;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>$set</code>&#x5C5E;&#x6027;&#x6765;&#x914D;&#x7F6E;&#xFF0C;&#x8FD9;&#x6837;&#x4E5F;&#x4E0D;&#x7528;&#x5148;&#x67E5;&#x8BE2;&#xFF0C;&#x5982;&#x679C;&#x66F4;&#x65B0;&#x7684;&#x6570;&#x636E;&#x6BD4;&#x8F83;&#x5C11;&#xFF0C;&#x53EF;&#x7528;&#x6027;&#x8FD8;&#x662F;&#x5F88;&#x597D;&#x7684;&#xFF1A;</p>
+<pre><code class="lang-javascript">    PersonModel.update({_id:_id},{$set:{name:<span class="hljs-string">&apos;MDragon&apos;</span>}},<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>)</span>{});
+</code></pre>
+<p>&#x9700;&#x8981;&#x6CE8;&#x610F;&#xFF0C;<code>Document</code>&#x7684;<code>CRUD</code>&#x64CD;&#x4F5C;&#x90FD;&#x662F;&#x5F02;&#x6B65;&#x6267;&#x884C;&#xFF0C;<code>callback</code>&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x5FC5;&#x987B;&#x662F;<code>err</code>&#xFF0C;&#x800C;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x5404;&#x4E2A;&#x65B9;&#x6CD5;&#x4E0D;&#x4E00;&#x6837;&#xFF0C;<code>update</code>&#x7684;<code>callback</code>&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x662F;&#x66F4;&#x65B0;&#x7684;&#x6570;&#x91CF;&#xFF0C;&#x5982;&#x679C;&#x8981;&#x8FD4;&#x56DE;&#x66F4;&#x65B0;&#x540E;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x5219;&#x8981;&#x4F7F;&#x7528;&#x5982;&#x4E0B;&#x65B9;&#x6CD5;</p>
+<pre><code class="lang-javascript">    Person.findByIdAndUpdate(_id,{$set:{name:<span class="hljs-string">&apos;MDragon&apos;</span>}},<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err,person</span>)</span>{
+      <span class="hljs-built_in">console</span>.log(person.name); <span class="hljs-comment">//MDragon</span>
+    });
+</code></pre>
+<p>&#x7C7B;&#x4F3C;&#x7684;&#x65B9;&#x6CD5;&#x8FD8;&#x6709;<code>findByIdAndRemove</code>&#xFF0C;&#x5982;&#x540C;&#x540D;&#x5B57;&#xFF0C;&#x53EA;&#x80FD;&#x6839;&#x636E;id&#x67E5;&#x8BE2;&#x5E76;&#x4F5C;<code>update</code>/<code>remove</code>&#x64CD;&#x4F5C;&#xFF0C;&#x64CD;&#x4F5C;&#x7684;&#x6570;&#x636E;&#x4EC5;&#x4E00;&#x6761;</p>
+<h3 id="&#x65B0;&#x589E;">&#x65B0;&#x589E;</h3>
+<p>&#x5982;&#x679C;&#x662F;<code>Entity</code>&#xFF0C;&#x4F7F;&#x7528;<code>save</code>&#x65B9;&#x6CD5;&#xFF0C;&#x5982;&#x679C;&#x662F;<code>Model</code>&#xFF0C;&#x4F7F;&#x7528;<code>create</code>&#x65B9;&#x6CD5;</p>
+<pre><code class="lang-javascript">    <span class="hljs-comment">//&#x4F7F;&#x7528;Entity&#x6765;&#x589E;&#x52A0;&#x4E00;&#x6761;&#x6570;&#x636E;</span>
+    <span class="hljs-keyword">var</span> krouky = <span class="hljs-keyword">new</span> PersonModel({name:<span class="hljs-string">&apos;krouky&apos;</span>});
+    krouky.save(callback);
+    <span class="hljs-comment">//&#x4F7F;&#x7528;Model&#x6765;&#x589E;&#x52A0;&#x4E00;&#x6761;&#x6570;&#x636E;</span>
+    <span class="hljs-keyword">var</span> MDragon = {name:<span class="hljs-string">&apos;MDragon&apos;</span>};
+    PersonModel.create(MDragon,callback);
+</code></pre>
+<p>&#x4E24;&#x79CD;&#x65B0;&#x589E;&#x65B9;&#x6CD5;&#x533A;&#x522B;&#x5728;&#x4E8E;&#xFF0C;&#x5982;&#x679C;&#x4F7F;&#x7528;<code>Model</code>&#x65B0;&#x589E;&#x65F6;&#xFF0C;&#x4F20;&#x5165;&#x7684;&#x5BF9;&#x8C61;&#x53EA;&#x80FD;&#x662F;&#x7EAF;&#x51C0;&#x7684;<code>JSON</code>&#x5BF9;&#x8C61;&#xFF0C;&#x4E0D;&#x80FD;&#x662F;&#x7531;<code>Model</code>&#x521B;&#x5EFA;&#x7684;&#x5B9E;&#x4F53;&#xFF0C;&#x539F;&#x56E0;&#x662F;&#xFF1A;&#x7531;<code>Model</code>&#x521B;&#x5EFA;&#x7684;&#x5B9E;&#x4F53;<code>krouky</code>&#x867D;&#x7136;&#x6253;&#x5370;&#x662F;&#x53EA;&#x6709;<code>{name:&apos;krouky&apos;}</code>&#xFF0C;&#x4F46;&#x662F;<code>krouky</code>&#x5C5E;&#x4E8E;<code>Entity</code>&#xFF0C;&#x5305;&#x542B;&#x6709;<code>Schema</code>&#x5C5E;&#x6027;&#x548C;<code>Model</code>&#x6570;&#x636E;&#x5E93;&#x884C;&#x4E3A;&#x6A21;&#x578B;&#x3002;&#x5982;&#x679C;&#x662F;&#x4F7F;&#x7528;<code>Model</code>&#x521B;&#x5EFA;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x4F20;&#x5165;&#x65F6;&#x4E00;&#x5B9A;&#x4F1A;&#x5C06;&#x9690;&#x85CF;&#x5C5E;&#x6027;&#x4E5F;&#x5B58;&#x5165;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x867D;&#x7136;<code>3.x</code>&#x8FFD;&#x52A0;&#x4E86;&#x9ED8;&#x8BA4;&#x4E25;&#x683C;&#x5C5E;&#x6027;&#xFF0C;&#x4F46;&#x4E5F;&#x4E0D;&#x5FC5;&#x8981;&#x589E;&#x52A0;&#x64CD;&#x4F5C;&#x7684;&#x62A5;&#x9519;</p>
+<h3 id="&#x5220;&#x9664;">&#x5220;&#x9664;</h3>
+<p>&#x548C;&#x65B0;&#x589E;&#x4E00;&#x6837;&#xFF0C;&#x5220;&#x9664;&#x4E5F;&#x6709;2&#x79CD;&#x65B9;&#x5F0F;&#xFF0C;&#x4F46;<code>Entity</code>&#x548C;<code>Model</code>&#x90FD;&#x4F7F;&#x7528;<code>remove</code>&#x65B9;&#x6CD5;</p>
+<h2 id="&#x57FA;&#x4E8E;entity&#x7684;&#x5B50;&#x6587;&#x6863;&#x64CD;&#x4F5C;">&#x57FA;&#x4E8E;Entity&#x7684;&#x5B50;&#x6587;&#x6863;&#x64CD;&#x4F5C;</h2>
+<p>&#x5982;&#x540C;<code>SQL</code>&#x6570;&#x636E;&#x5E93;&#x4E2D;2&#x5F20;&#x8868;&#x6709;&#x4E3B;&#x5916;&#x5173;&#x7CFB;&#xFF0C;<code>Mongoose</code>&#x5C06;2&#x4E2A;<code>Document</code>&#x7684;&#x5D4C;&#x5957;&#x53EB;&#x505A;<code>Sub-Docs</code>&#xFF08;&#x5B50;&#x6587;&#x6863;&#xFF09;</p>
+<p>&#x7B80;&#x5355;&#x7684;&#x8BF4;&#x5C31;&#x662F;&#x4E00;&#x4E2A;<code>Document</code>&#x5D4C;&#x5957;&#x53E6;&#x5916;&#x4E00;&#x4E2A;<code>Document</code>&#x6216;&#x8005;<code>Documents</code>:</p>
+<pre><code class="lang-javascript">    <span class="hljs-keyword">var</span> ChildSchema1 = <span class="hljs-keyword">new</span> Schema({name:<span class="hljs-built_in">String</span>});
+    <span class="hljs-keyword">var</span> ChildSchema2 = <span class="hljs-keyword">new</span> Schema({name:<span class="hljs-built_in">String</span>});
+    <span class="hljs-keyword">var</span> ParentSchema = <span class="hljs-keyword">new</span> Schema({
+      children1:ChildSchema1,   <span class="hljs-comment">//&#x5D4C;&#x5957;Document</span>
+      children2:[ChildSchema2]  <span class="hljs-comment">//&#x5D4C;&#x5957;Documents</span>
+    });
+</code></pre>
+<p><code>Sub-Docs</code>&#x4EAB;&#x53D7;&#x548C;<code>Documents</code>&#x4E00;&#x6837;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x4F46;&#x662F;<code>Sub-Docs</code>&#x7684;&#x64CD;&#x4F5C;&#x90FD;&#x7531;&#x7236;&#x7C7B;&#x53BB;&#x6267;&#x884C;</p>
+<pre><code class="lang-javascript">    <span class="hljs-keyword">var</span> ParentModel = db.model(<span class="hljs-string">&apos;Parent&apos;</span>,parentSchema);
+    <span class="hljs-keyword">var</span> parent = <span class="hljs-keyword">new</span> ParentModel({
+      children2:[{name:<span class="hljs-string">&apos;c1&apos;</span>},{name:<span class="hljs-string">&apos;c2&apos;</span>}]
+    });
+    parent.children2[<span class="hljs-number">0</span>].name = <span class="hljs-string">&apos;d&apos;</span>;
+    parent.save(callback);
+</code></pre>
+<p><code>parent</code>&#x5728;&#x6267;&#x884C;&#x4FDD;&#x5B58;&#x65F6;&#xFF0C;&#x7531;&#x4E8E;&#x5305;&#x542B;<code>children2</code>&#xFF0C;&#x4ED6;&#x662F;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x5E93;&#x6A21;&#x578B;&#x5BF9;&#x8C61;&#xFF0C;&#x56E0;&#x6B64;&#x4F1A;&#x5148;&#x4FDD;&#x5B58;<code>chilren2[0]</code>&#x548C;<code>chilren2[1]</code>&#x3002;</p>
+<p>&#x5982;&#x679C;&#x5B50;&#x6587;&#x6863;&#x5728;&#x66F4;&#x65B0;&#x65F6;&#x51FA;&#x73B0;&#x9519;&#x8BEF;&#xFF0C;&#x5C06;&#x76F4;&#x63A5;&#x62A5;&#x5728;&#x7236;&#x7C7B;&#x6587;&#x6863;&#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#x5904;&#x7406;&#xFF1A;</p>
+<pre><code class="lang-javascript">    ChildrenSchema.pre(<span class="hljs-string">&apos;save&apos;</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">next</span>)</span>{
+      <span class="hljs-keyword">if</span>(<span class="hljs-string">&apos;x&apos;</span> === <span class="hljs-keyword">this</span>.name) <span class="hljs-keyword">return</span> next(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">&apos;#err:not-x&apos;</span>));
+      next();
+    });
+    <span class="hljs-keyword">var</span> parent = <span class="hljs-keyword">new</span> ParentModel({children1:{name:<span class="hljs-string">&apos;not-x&apos;</span>}});
+    parent.save(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>)</span>{
+      <span class="hljs-built_in">console</span>.log(err.message); <span class="hljs-comment">//#err:not-x</span>
+    });
+</code></pre>
+<h3 id="&#x67E5;&#x8BE2;&#x5B50;&#x6587;&#x6863;">&#x67E5;&#x8BE2;&#x5B50;&#x6587;&#x6863;</h3>
+<p>&#x5982;&#x679C;<code>children</code>&#x662F;<code>parent</code>&#x7684;&#x5B50;&#x6587;&#x6863;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5982;&#x4E0B;&#x65B9;&#x6CD5;&#x67E5;&#x8BE2;&#x5230;<code>children</code></p>
+<pre><code class="lang-javascript">    <span class="hljs-keyword">var</span> child = parent.children.id(id);
+</code></pre>
+<h3 id="&#x65B0;&#x589E;&#x3001;&#x5220;&#x9664;&#x3001;&#x66F4;&#x65B0;">&#x65B0;&#x589E;&#x3001;&#x5220;&#x9664;&#x3001;&#x66F4;&#x65B0;</h3>
+<p>&#x5B50;&#x6587;&#x6863;&#x662F;&#x7236;&#x6587;&#x6863;&#x7684;&#x4E00;&#x4E2A;&#x5C5E;&#x6027;&#xFF0C;&#x56E0;&#x6B64;&#x6309;&#x7167;&#x5C5E;&#x6027;&#x7684;&#x64CD;&#x4F5C;&#x5373;&#x53EF;&#xFF0C;&#x4E0D;&#x540C;&#x7684;&#x662F;&#x5728;&#x65B0;&#x589E;&#x7236;&#x7C7B;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5B50;&#x6587;&#x6863;&#x662F;&#x4F1A;&#x88AB;&#x5148;&#x52A0;&#x5165;&#x8FDB;&#x53BB;&#x7684;&#x3002;</p>
+<p>&#x5982;&#x679C;<code>ChildrenSchema</code>&#x662F;&#x4E34;&#x65F6;&#x7684;&#x4E00;&#x4E2A;&#x5B50;&#x6587;&#x6863;&#xFF0C;&#x4E0D;&#x4F5C;&#x4E3A;&#x6570;&#x636E;&#x5E93;&#x6620;&#x5C04;&#x96C6;&#x5408;&#xFF0C;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#xFF1A;</p>
+<pre><code class="lang-javascript">    <span class="hljs-keyword">var</span> ParentSchema = <span class="hljs-keyword">new</span> Schema({
+      children:{
+        name:<span class="hljs-built_in">String</span>
+      }
+    });
+    <span class="hljs-comment">//&#x5176;&#x5B9E;&#x5C31;&#x662F;&#x533F;&#x540D;&#x6DF7;&#x5408;&#x6A21;&#x5F0F;</span>
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="3.5 Schema的配置项.html" class="navigation navigation-prev " aria-label="Previous page: 3.5 Schema的配置项">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="3.7 Mongoose基于Model的查询操作.html" class="navigation navigation-next " aria-label="Next page: 3.7 Mongoose基于Model的查询操作">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"3.6  Mongoose 基于DOC（实体）的CRUD","level":"1.4.6","depth":2,"next":{"title":"3.7 Mongoose基于Model的查询操作","level":"1.4.7","depth":2,"path":"3 Mongoose/3.7 Mongoose基于Model的查询操作.md","ref":"3 Mongoose/3.7 Mongoose基于Model的查询操作.md","articles":[]},"previous":{"title":"3.5 Schema的配置项","level":"1.4.5","depth":2,"path":"3 Mongoose/3.5 Schema的配置项.md","ref":"3 Mongoose/3.5 Schema的配置项.md","articles":[]},"dir":"ltr"},"config":{"plugins":["multipart","chapter-fold","page-toc-button","splitter","-lunr","-search","search-pro","theme-comscore"],"ignores":["Node Modules"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"splitter":{},"search-pro":{},"multipart":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"yu-Lei ","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"bookname":"Notes","variables":{},"title":"Notes","catalog":["1 Koa","2 MongoDB","3 Mongoose"],"links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"yu-lei's Blog":"https://rainyulei.github.io"}},"gitbook":"*","unchanged":[],"description":"some notes","outputfile":"SUMMARY.md","theme-default":{"showLevel":true},"extension":null},"file":{"path":"3 Mongoose/3.6  Mongoose 基于DOC（实体）的CRUD.md","mtime":"2019-08-26T10:26:58.162Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-26T10:54:02.996Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-page-toc-button/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+
