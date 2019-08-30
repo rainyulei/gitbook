@@ -54,7 +54,7 @@
   "variables": {},
   "bookname": "Notes",
   "outputfile": "SUMMARY.md",
-  "catalog": ["1 Koa","2 MongoDB","3 Mongoose"],  
+  "catalog": ["1 Koa","2 MongoDB","3 Mongoose","Attachment"],  
   "ignores": ["Node Modules"],
   "unchanged": [] 
 }
